@@ -1,0 +1,78 @@
+ul {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn {
+    background-color: rgba(11, 42, 145, 0.253) !important;
+    color: rgb(206, 201, 201) !important;
+    border-color: rgba(11, 42, 145, 0.253) !important;
+}
+
+.btn:hover {
+    background-color: rgb(0, 0, 0) !important;
+    color: white !important;
+    border-color: unset !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.dropdown-carrito {
+    position: relative;
+}
+
+.dropdown-menu-carrito {
+    display: none;
+    position: absolute;
+    left: -255px;
+    width: 25rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 300px;
+    /* z-index: auto; */
+}
+
+.dropdown-carrito:hover .dropdown-menu-carrito {
+    display: block;
+}
+
+.nav-link-carrito {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    z-index: 100;
+}
+
+.bi {
+    color: grey;
+}
+
+.icon {
+    background-color: whitesmoke;
+    border-radius: 100%;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.icon:hover>.bi {
+    color: red;
+}
+
+.icon:hover {
+    border-color: red;
+}
+
+@media only screen and (max-width: 991px) {
+    .dropdown-carrito:hover .dropdown-menu-carrito {
+        display: none !important;
+    }
+}

@@ -1,0 +1,87 @@
+.navbar{
+    background-color: rgb(0, 0, 0) !important;
+    height: 70px;
+    /* position: sticky !important; */
+}
+
+a{
+    font-style: unset !important;
+    color: whitesmoke;
+}
+
+
+.btn{
+    
+    color: whitesmoke !important;
+}
+
+.btn:hover{
+    background-color:rgb(5, 36, 121) !important;
+    color:white !important;
+}
+
+.btn:active{
+    background-color:rgb(29, 137, 209) !important;
+    color:white !important;
+    
+}
+
+.navbar .dropdown-menu{
+    background-color: rgba(0, 0, 0, 0.8);
+    
+}
+
+
+
+.navbar .navbar-collapse {
+    text-align: center;
+    position: inherit;
+    
+    z-index: 3;
+  }
+
+  ul{
+      background-color: black;
+  }
+
+  .dropdown-menu{
+      
+      text-align: center;
+  }
+
+.dropdown-item{
+    color: white !important;
+    z-index: 3;
+}
+
+
+
+.dropdown-item:hover{
+    background-color: rgba(63, 73, 223, 0.8);
+}
+
+.carrito {
+    background-color: whitesmoke !important;
+}
+
+@media only screen and (max-width: 991px) {
+  
+    .carro{
+      margin: 0px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .icono{
+        margin-left: unset;
+    }
+
+    /* .navbar-collapse:target{
+        display: none !important;
+    } */
+
+    
+
+    navbarNavDropdown:target{
+        display: none;
+    }
+}

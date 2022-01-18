@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <!-- <img src="../../../assets/img/logo_freesias.png" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+        DAPS
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <a class="nav-link" [routerLink]="['/tienda']" routerLinkActive="active">Tienda</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <button class="btn my-2 my-sm-0" [routerLink]="['/auth/login']" routerLinkActive="active">Iniciar sesión</button>
+            </li>
+            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <button class="btn my-2 my-sm-0 ml-auto" [routerLink]="['/auth/registro']" routerLinkActive="active">Crear cuenta</button>
+            </li>
+            <app-carro-navbar class="carro ml-sm-none ml-md-none ml-lg-3"></app-carro-navbar>
+            <!-- <app-cuenta class="ml-sm-none ml-md-none ml-lg-3"></app-cuenta> -->
+
+        </ul>
+
+
+    </div>
+</nav>
+
+
+
+
+<!-- NO es mi codigo -->
+
+
+
+
+
+<!-- 
+<div class="mix">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header menuitem">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Menu Item 1</a></li>
+        <li><a href="#">Menu Item 2</a></li>
+        <li><a href="#">Menu Item 3</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+</div> -->
+
+<style>
+
+</style>

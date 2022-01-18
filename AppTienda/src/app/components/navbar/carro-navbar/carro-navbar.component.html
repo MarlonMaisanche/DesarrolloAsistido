@@ -1,0 +1,44 @@
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown-carrito">
+        <a class="nav-link-carrito" [routerLink]="['/carrito']" routerLinkActive="active">
+            <i class="bi bi-cart4" style="font-size: 2rem; color: whitesmoke;"></i>
+            <span *ngIf="this.carritoService.carroCompras.productosCarrito.length>0" class="badge bg-success rounded-pill">{{this.carritoService.carroCompras.productosCarrito.length}}</span>
+
+        </a>
+        <div class="dropdown-menu-carrito">
+
+            <div class="row" *ngFor="let item of this.carritoService.carroCompras.productosCarrito">
+                <div class="col-5 mt-2 mb-1">
+                    <img src="{{item?.Imagen}}" width="70" class="rounded-sm" alt="...">
+
+                </div>
+                <div class="col-7 mt-2 mb-1 text-center text-light">
+                    {{item?.Nombre}}
+                    <br>
+                    <small class="text-light">Cantidad: {{item?.Cantidad}}</small>
+                    <br>
+                    <div class="text-light">
+                        {{item?.Precio | currency:'$'}}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <hr> -->
+            <div *ngIf="this.carritoService.carroCompras.productosCarrito.length > 0">
+                <div class="row">
+                    <div class="col-7">
+                        <button class="btn btn-primary" style="width: 100%;" [routerLink]="['/carrito']">Ver carrito</button>
+                        <button class="btn btn-primary" style="width: 100%;" (click)="compra()">Finalizar compra</button>
+                    </div>
+                    <div class="col-5">
+                        <p class="card-title mt-2 text-light">Total: {{this.carritoService.carroCompras.total | currency:"$"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="this.carritoService.carroCompras.productosCarrito.length == 0" class="alert alert-dark" role="alert">
+                Por el momento no hay productos en el carrito!
+            </div>
+        </div>
+    </li>
+</ul>
