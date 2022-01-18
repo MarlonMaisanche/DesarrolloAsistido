@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+
+.caja {
+    height: 4rem;
+    width: 100%;
+}
+
+.botonAuth {
+    width: 80%;
+    height: 3rem;
+    border: unset;
+    background-color: #327ef4;
+    color: white;
+}
+
+.botonFacebook {
+    width: 80%;
+    height: 3rem;
+    background-color: #3b5998;
+    color: white;
+    border: unset;
+}
+
+.botonGoogle {
+    width: 80%;
+    height: 3rem;
+    background-color: #d94f3f;
+    color: white;
+    border: unset;
+}
+
+.poster {
+    height: 600px;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 19, 19, 0.26);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    /* background: linear-gradient(to top,rgb(49, 7, 49), rgb(141, 26, 103) );
+    background-repeat: no-repeat; */
+    background-color: whitesmoke;
+    /* background-image: url("assets/img/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;  */
+}
+
+
+/* .center {
+    text-align: center;
+} */
+
+
+/* .toast-success {
+    padding-left: 80px;
+    background-position: 35% !important;
+    background-color: black !important;
+    background-image: none !important;
+}
+
+.toast-container .ngx-toastr:hover {
+    box-shadow: 0 0 12px blueviolet !important;
+    opacity: 0.9 !important;
+    cursor: pointer;
+  } */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+    .poster {
+        display: none;
+    }
+}
