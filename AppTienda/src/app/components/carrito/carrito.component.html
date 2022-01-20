@@ -1,0 +1,34 @@
+<div *ngIf="this.carritoService.carroCompras.productosCarrito.length > 0">
+    <p class="h3 ml-3 mt-3">
+        Sus artículos</p>
+    <app-tabla></app-tabla>
+    <hr>
+    <div class="row " style="width: 100%;">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Total del carrito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total:</td>
+                        <td class="align-middle text-center">{{this.carritoService.carroCompras.total | currency:'$' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="position: relative; z-index: 1;">
+                <button type="button" id="btnicon" class="btn btn-outline-dark" (click)="comprar()">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div *ngIf="this.carritoService.carroCompras.productosCarrito.length == 0" class="alert alert-primary mt-5" role="alert">
+        Tu carrito se encuentra vacío!
+        <button class="btn btn-outline-dark" style="width: 300px;" (click)="volverATienda()"><i class="bi bi-shop">Volver a la tienda</i></button>
+    </div>
+</div>
