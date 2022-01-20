@@ -1,0 +1,33 @@
+img{
+    height: 70px;
+    border: none;
+    border-color: unset;
+}
+
+a{
+    color: black;
+
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.bi{
+    color: grey;
+}
+
+.icon{
+    background-color: whitesmoke;
+    border-radius: 100%;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.icon:hover > .bi{
+    color: red;
+}
+
+.icon:hover {
+    border-color: red;
+}
