@@ -1,0 +1,72 @@
+a{
+    cursor: pointer !important;
+}
+
+a:hover{
+    text-decoration: underline !important;
+}
+
+.card-header{
+    padding: unset;
+}
+
+.card-body{
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+hr{
+    margin: 0.5rem;
+}
+
+
+.btn{
+    border-radius: unset;
+    margin: unset;
+    
+}
+
+.list-group-item{
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: rgb(240, 236, 236);
+    
+}
+
+li{
+    cursor: pointer !important;
+}
+
+.list-group-item:hover{
+    background-color:rgb(158, 158, 158) ;
+    color: whitesmoke;
+}
+
+.list-group-item:active{
+    background-color:rgb(158, 158, 158) ;
+    color: whitesmoke;
+}
+
+
+.btn-link{
+    background-color: rgb(255, 253, 253);
+    color: black;
+    
+}
+
+.btn-link:hover{
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}
+
+.btn-link:focus{
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}
+
+.btn-link:active{
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}

@@ -1,0 +1,180 @@
+<div class="container-fluid">
+    <section class="jumbotron text-center mt-3">
+        <div class="container">
+            <h1>Mira los productos que ofrecemos</h1>
+            <p class="lead text-muted">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum numquam cupiditate quasi. Odio repellendus aliquid fugiat laboriosam sit reprehenderit labore consectetur dolorem illo exercitationem distinctio, nam earum molestias. Ipsam est
+                praesentium consectetur necessitatibus.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        </div>
+    </section>
+
+
+
+
+    <div class="row">
+
+        <div class="col-md-6 d-flex justify-content-start">
+
+            <div class="form-check form-check-inline">
+                <label class="text-muted mr-1">Items por página: </label>
+                <select class="form-control form-control-sm d-inline mb-2" [(ngModel)]="opcion" style="width: 60px;
+            height: 25px;">
+              <option *ngFor="let item of opciones"  [ngValue]="item">{{item}}</option>
+            </select>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row ml-1">
+        <div class="col-3 d-none d-md-block" style="padding: unset;">
+            <h5>Categorías:</h5>
+            <a (click)="obtenerProductosPorCategorias('Todos')">Todos los productos</a>
+            <div class="accordion " id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <i class="bi bi-tv mr-3"></i>Televisión, Video y Audio
+                  </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <ul class="list-group">
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('TELEVISORES')">Televisores</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('ACCESORIOS DE TV Y VIDEO')">Accesorios de TV y Video</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('PARLANTES Y AUDIO')">Parlantes y Audio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="bi bi-laptop mr-2"></i>Computación
+                  </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <ul class="list-group">
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('COMPUTADORAS Y LAPTOS')">Computadoras y Laptos</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('IMPRESORAS')">Impresoras</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('WEBCAMS')">Webcams</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('PENDRIVES')">Pendrives</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('SOFTWARE')">Software</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="bi bi-joystick mr-2"></i>Videojuegos y Consolas
+                  </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <ul class="list-group">
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('JUEGOS')">Juegos</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('CONTROLES')">Controles</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('CONSOLAS')">Consolas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <i class="bi bi-phone mr-2"></i>Celulares y Accesorios
+                  </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <ul class="list-group">
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('CELULARES')">Celulares</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('SMARTWATCHES Y ACCESORIOS')">Smartwatches y Accesorios</li>
+                            <li class="list-group-item" (click)="obtenerProductosPorCategorias('REPUESTOS')">Repuestos</li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-sm-12">
+            <div class="album py-3 bg-light">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-12" *ngFor="let producto of productos  | paginate: { itemsPerPage: opcion, currentPage: page_number,totalItems: productos.length } ">
+                            <!-- <div class="col-md-3" *ngFor="let producto of productos"> -->
+
+                            <div class="card mb-3 shadow-sm">
+                                <img *ngIf=" producto.Imagen != 'Sin imagen'; else  other_content" [routerLink]="['/detalle-producto', producto.Id]" class="card-img-top" src="{{producto.Imagen}}" alt="" ng-switch-when="Sin imagen">
+                                <ng-template #other_content>
+                                    <img *ngIf=" producto.Imagen2 != 'Sin imagen'; else  other_content2" [routerLink]="['/detalle-producto', producto.Id]" class="card-img-top" src="{{producto.Imagen2}}" alt="" ng-switch-when="Sin imagen">
+                                </ng-template>
+                                <ng-template #other_content2>
+                                    <img [routerLink]="['/tienda/producto', producto.Id]" class="card-img-top" src="{{producto.Imagen3}}" alt="" ng-switch-when="Sin imagen">
+                                </ng-template>
+
+                                <div class="card-body text-justify">
+                                    <a class="font-weight-bold" [routerLink]="['/tienda/producto', producto.Id]" style="font-size: 1.2rem;">
+                            {{producto.Nombre}}
+                          </a>
+                                    <br>
+
+                                    <small class="text-muted" style="font-size: 0.7rem;">Código: {{producto?.Id}}</small>
+
+                                    <br>
+                                    <small *ngIf="producto.Oferta" class="text-right" style="font-size: 1.1rem; ">
+                                      {{ producto.Precio_Oferta | currency:'$' }}
+                                    </small>
+                                    <small *ngIf="producto.Oferta" class=" mt-4 text-muted text-left" style="font-size: 0.8rem;"><s>{{ producto.Precio | currency:'$' }}</s></small>
+
+                                    <small *ngIf="!producto.Oferta" class="text-left" style="font-size: 1.1rem; ">{{ producto.Precio | currency:'$' }}</small> <br>
+                                    <small class="text-muted">(incluido IVA)</small>
+                                    <hr>
+
+
+                                    <div class="d-flex">
+                                        <button type="button" id="btnicon" class="btn btn-outline-primary m-auto" (click)="agregarACarrito(producto)">
+                            <!-- <i class="bi bi-cart-plus" style="font-size: 1.5rem; color: black;"></i> -->
+                            <i class="bi bi-cart font-italic"> Añadir al carrito</i> 
+                          </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div *ngIf="this.productos.length == 0" class="alert alert-primary" role="alert" style="width: 100%;">
+                  No hay productos disponibles
+                </div> -->
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div row>
+    <div class="col-md-12 d-flex justify-content-center">
+
+
+        <pagination-controls (pageChange)="page_number = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>
+<button (click)="imp()">IMPRIMIR</button>
+<button (click)="obtenerProductosPorCategorias('Categoria 1')">CATEGORIAS</button>
+<!-- <app-footer></app-footer> -->
