@@ -1,0 +1,16 @@
+<h1>RECUPERAR CONTRASEÑA</h1>
+<form [formGroup]="authForm" (ngSubmit)="recuperar()">
+    <div class="d-flex flex-column align-items-center">
+        <p class="text-muted">Se enviará un correo electrónico con el proceso de recuperación de la cuenta, si la cuenta existe</p>
+        <input type="email" formControlName="correo" class="caja form-control" placeholder="Correo electrónico">
+    </div>
+    <div *ngIf="this.authForm.get('correo')?.errors?.['required'] && this.authForm.get('correo').touched" class="text-danger text-center" role="alert">
+        (El correo no puede quedar vacío)
+    </div>
+    <div *ngIf="this.authForm.get('correo')?.errors?.['email'] && this.authForm.get('correo').touched" class="text-danger text-center" role="alert">
+        (El correo no es válido)
+    </div>
+    <div class="d-flex flex-column align-items-center mt-5">
+        <button type="submit" class="btn btn-primary mb-3" value="1" [disabled]="this.authForm.invalid">Recuperar contraseña</button>
+    </div>
+</form>
