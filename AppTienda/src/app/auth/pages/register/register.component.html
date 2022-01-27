@@ -1,0 +1,42 @@
+<h1>REGISTRO</h1>
+<form [formGroup]="authForm">
+    <div class="d-flex flex-column align-items-center">
+        <p class="text-muted">Accede a nuestra tienda virtual para realizar pedidos de nuestros productos</p>
+        <input formControlName="correo" type="email" class="caja form-control" placeholder="Correo electrónico">
+
+
+        <input formControlName="password" type="password" class="caja form-control" placeholder="Contraseña">
+        <input formControlName="password2" type="password" class="caja form-control" placeholder="Confirmar contraseña">
+    </div>
+
+    <div *ngIf="this.authForm.get('correo')?.errors?.['required'] && this.authForm.get('correo').touched" class="text-danger text-center" role="alert">
+        (El correo no puede quedar vacío)
+    </div>
+    <div *ngIf="this.authForm.get('correo')?.errors?.['email'] && this.authForm.get('correo').touched" class="text-danger text-center" role="alert">
+        (El correo no es válido)
+    </div>
+    <div *ngIf="this.authForm.get('password')?.errors?.['required'] && this.authForm.get('password').touched" class="text-danger text-center" role="alert">
+        (La contraseña no puede quedar vacía)
+    </div>
+    <div *ngIf="this.authForm.get('password')?.errors && this.authForm.get('password').touched" class="text-danger text-center" role="alert">
+        (La contraseña debe tener al menos 6 caracteres)
+    </div>
+    <div *ngIf="this.authForm.get('password2')?.errors?.['required'] && this.authForm.get('password2').touched" class="text-danger text-center" role="alert">
+        (Debe confirmar la contraseña)
+    </div>
+    <div *ngIf="this.authForm.get('password')?.value !== this.authForm.get('password2').value && this.authForm.get('password').touched" class="text-danger text-center" role="alert">
+        (Las contraseñas no coinciden)
+    </div>
+
+    <div class=" mt-3 d-flex flex-column align-items-center">
+        <button (click)="registrarUsuario()" class="btn btn-primary mb-3" [disabled]="this.authForm.invalid">Registrarse</button>
+        <p class="text-center text-muted">- o -</p>
+        <button class="botonFacebook mb-3"><i class="bi bi-facebook" style="font-size: 1.3rem;"
+          ></i> Resgistrarse con Facebook</button>
+
+        <button (click)="registrarGoogle()" class="botonGoogle"><i class="bi bi-google" style="font-size: 1.3rem;"></i> Registrarse con Google</button>
+        <a routerLink="/auth/login" class="mt-3 text-muted">Ya tienes una cuenta? Inicia sesión...</a>
+    </div>
+
+
+</form>
