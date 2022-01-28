@@ -1,71 +1,76 @@
-a{
+.jumbotron {
+    background-image: url("https://morfi.vtexassets.com/assets/vtex.file-manager-graphql/images/585372da-8713-46a6-811a-c40a129c2fa5___56b40092c927c0aba28e6c695fb70151.jpg");
+    /* background-position: center; */
+    height: 400px;
+}
+
+.texto {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+a {
     cursor: pointer !important;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline !important;
 }
 
-.card-header{
+.card-header {
     padding: unset;
 }
 
-.card-body{
+.card-body {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
-hr{
+hr {
     margin: 0.5rem;
 }
 
-
-.btn{
+.btn {
     border-radius: unset;
     margin: unset;
-    
 }
 
-.list-group-item{
+.list-group-item {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     background-color: rgb(240, 236, 236);
-    
 }
 
-li{
+li {
     cursor: pointer !important;
 }
 
-.list-group-item:hover{
-    background-color:rgb(158, 158, 158) ;
+.list-group-item:hover {
+    background-color: rgb(158, 158, 158);
     color: whitesmoke;
 }
 
-.list-group-item:active{
-    background-color:rgb(158, 158, 158) ;
+.list-group-item:active {
+    background-color: rgb(158, 158, 158);
     color: whitesmoke;
 }
 
-
-.btn-link{
+.btn-link {
     background-color: rgb(255, 253, 253);
     color: black;
-    
 }
 
-.btn-link:hover{
+.btn-link:hover {
     background-color: black;
     color: white;
     text-decoration: unset;
 }
 
-.btn-link:focus{
+.btn-link:focus {
     background-color: black;
     color: white;
     text-decoration: unset;
 }
 
-.btn-link:active{
+.btn-link:active {
     background-color: black;
     color: white;
     text-decoration: unset;
