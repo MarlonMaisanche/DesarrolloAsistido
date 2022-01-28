@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, DocumentSnapshot } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Pedido } from '../models/Pedido';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
