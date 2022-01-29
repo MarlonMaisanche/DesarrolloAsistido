@@ -1,0 +1,184 @@
+<div class="container-fluid mt-5 mb-5">
+    <p class="h3 mt-3">Finalizar compra</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="accordion " id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <p class="h5 mt-2">Identificación<small class="text-danger">*</small></p>
+                      </button>
+
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <form [formGroup]="infoForm">
+                            <div class="form-group mx-4 mt-3">
+                                <label for="correo">Correo electrónico<small class="text-danger">*</small></label>
+                                <input type="email" class="form-control" id="correo" formControlName="correo">
+                                <div *ngIf="this.infoForm.get('correo')?.errors?.['required'] && this.infoForm.get('correo').touched" class="text-danger text-center" role="alert">
+                                    (Este campo no puede quedar vacío)
+                                </div>
+                            </div>
+                            <div class="row mx-2 my-2">
+                                <div class="col-6">
+                                    <label for="nombre">Nombre<small class="text-danger">*</small></label>
+                                    <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                                    <div *ngIf="this.infoForm.get('nombre')?.errors?.['required'] && this.infoForm.get('nombre').touched" class="text-danger text-center" role="alert">
+                                        (Este campo no puede quedar vacío)
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="apellidos">Apellidos<small class="text-danger">*</small></label>
+                                    <input type="text" class="form-control" id="apellidos" formControlName="apellidos">
+                                    <div *ngIf="this.infoForm.get('apellidos')?.errors?.['required'] && this.infoForm.get('apellidos').touched" class="text-danger text-center" role="alert">
+                                        (Este campo no puede quedar vacío)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-2 mb-3">
+                                <div class="col-6">
+                                    <label for="cedula">Cédula / RUC<small class="text-danger">*</small></label>
+                                    <input type="text" class="form-control" id="cedula" formControlName="cedula">
+                                    <div *ngIf="this.infoForm.get('cedula')?.errors?.['required'] && this.infoForm.get('cedula').touched" class="text-danger text-center" role="alert">
+                                        (Este campo no puede quedar vacío)
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="telefono">Teléfono / Celular<small class="text-danger">*</small></label>
+                                    <input type="text" class="form-control" id="telefono" formControlName="telefono">
+                                    <div *ngIf="this.infoForm.get('telefono')?.errors?.['required'] && this.infoForm.get('telefono').touched" class="text-danger text-center" role="alert">
+                                        (Este campo no puede quedar vacío)
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <p class="h5 mt-2">Envío<small class="text-danger">*</small></p>
+                      </button>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <form [formGroup]="envioForm">
+                            <div class="form-check mx-5 my-2">
+                                <input class="form-check-input" type="radio" name="envio" id="exampleRadios1" value="1" checked formControlName="envio" (change)="envio($event.target)">
+                                <label class="form-check-label" for="exampleRadios1">
+                                      Pasar a retirar en el local
+                                    </label>
+                            </div>
+                            <div class="form-check mx-5 my-2">
+                                <input class="form-check-input" type="radio" name="envio" id="exampleRadios2" value="2" formControlName="envio" (change)="envio($event.target)">
+                                <label class="form-check-label" for="exampleRadios2">
+                                      Enviar a dirección ($5.00 Recargo)
+                                    </label>
+                            </div>
+                            <div *ngIf="this.envioForm.get('envio')?.errors?.['required'] && this.envioForm.get('envio').touched" class="text-danger text-center" role="alert">
+                                (Este campo no puede quedar vacío)
+                            </div>
+                            <div *ngIf="metodoEnvio" class="row mx-2 my-2">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="provincia">Provincia<small class="text-danger">*</small></label>
+                                        <select class="form-control" id="provincia" (change)="onSelect($event.target)" formControlName="provincia">
+                                              <option *ngFor="let item of provincias" value={{item}}>{{item}}</option>
+                                            </select>
+                                        <div *ngIf="this.envioForm.get('provincia')?.errors?.['required'] && this.envioForm.get('provincia').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="canton">Cantón<small class="text-danger">*</small></label>
+                                        <select class="form-control" id="canton" formControlName="canton">
+                                              <option *ngFor="let item of cantones" value={{item}}>{{item}}</option>
+                                            </select>
+                                        <div *ngIf="this.envioForm.get('canton')?.errors?.['required'] && this.envioForm.get('canton').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mx-2 my-2">
+                                    <div class="col-6">
+                                        <label for="calleP">Calle Principal<small class="text-danger">*</small></label>
+                                        <input type="text" class="form-control" id="calleP" formControlName="callePrincipal">
+                                        <div *ngIf="this.envioForm.get('callePrincipal')?.errors?.['required'] && this.envioForm.get('callePrincipal').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="calleS">Calle Secundaria<small class="text-danger">*</small></label>
+                                        <input type="text" class="form-control" id="calleS" formControlName="calleSecundaria">
+                                        <div *ngIf="this.envioForm.get('calleSecundaria')?.errors?.['required'] && this.envioForm.get('calleSecundaria').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="piso">Piso o apartamento<small class="text-danger">*</small></label>
+                                        <input type="text" class="form-control" id="piso" formControlName="piso">
+                                        <div *ngIf="this.envioForm.get('piso')?.errors?.['required'] && this.envioForm.get('piso').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="referencia">Lugar de referencia<small class="text-danger">*</small></label>
+                                        <input type="text-area" class="form-control" id="referencia" formControlName="referencia">
+                                        <div *ngIf="this.envioForm.get('referencia')?.errors?.['required'] && this.envioForm.get('referencia').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="cedulaR">Cédula / RUC de la persona que va a recibir<small class="text-danger">*</small></label>
+                                        <input type="text" class="form-control" id="cedulaR" formControlName="cedulaRecibe">
+                                        <div *ngIf="this.envioForm.get('cedulaRecibe')?.errors?.['required'] && this.envioForm.get('cedulaRecibe').touched" class="text-danger text-center" role="alert">
+                                            (Este campo no puede quedar vacío)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card mt-2">
+                <p class="h5 mt-2 ml-3 align-start text-start">Tu pedido</p>
+                <table class="table border">
+                    <thead>
+                        <tr class="text-center">
+                            <th colspan="2" class="text-center" scope="col">Producto</th>
+                            <th class="text-center" scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-bottom-0" *ngFor="let item of productos;">
+                            <td colspan="2" scope="row" class="text-center">{{item.Nombre}}
+                                <small class="font-weight-bold">x {{item.Cantidad}}</small>
+                            </td>
+                            <td class="align-middle text-center">{{ item.Subtotal| currency:'$' }}</td>
+                        </tr>
+                        <tr *ngIf="itemEnvio" class="text-center">
+                            <td colspan="2" scope="row" class="text-center">{{itemEnvio.name}}</td>
+                            <td class="align-middle text-center">{{ itemEnvio.unit_amount.value | currency:'$' }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="font-weight-bold">Total</td>
+                            <td class="text-center">{{ total | currency:'$'}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div style="position: relative; z-index: 1;">
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            </div>
+        </div>
+    </div>
+</div>
