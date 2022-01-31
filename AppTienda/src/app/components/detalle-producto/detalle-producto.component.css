@@ -11,12 +11,6 @@ body {
     background-color: black !important;
 }
 
-
-/* #pic-1 {
-    display: flex;
-    justify-content: center;
-} */
-
 img {
     max-width: 100%;
 }
@@ -44,16 +38,6 @@ img {
         margin-bottom: 20px;
     }
 }
-
-
-/* @media screen and (max-width: 280px) {
-    img {
-        max-height: 200px;
-    }
-    img {
-        max-width: 80%;
-    }
-} */
 
 @media screen and (max-width: 350px) {
     img {
@@ -129,6 +113,3 @@ img {
         transform: scale(1);
     }
 }
-
-
-/*# sourceMappingURL=style.css.map */

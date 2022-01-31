@@ -32,7 +32,6 @@ export class DetalleProductoComponent implements OnInit {
       this.productosService.getProducto(Id).subscribe(data =>{
         this.producto = data.data() as Producto
         this.producto.Id = data.id
-        console.log(this.producto);
         if (this.producto.Imagen != 'Sin imagen'){
           this.imagenes.push(this.producto.Imagen)
         }
@@ -42,7 +41,6 @@ export class DetalleProductoComponent implements OnInit {
         if (this.producto.Imagen3 != 'Sin imagen'){
           this.imagenes.push(this.producto.Imagen3)
         }
-        console.log(this.imagenes[0]);
       })
 
     }
@@ -54,10 +52,8 @@ export class DetalleProductoComponent implements OnInit {
       cantidad: this.cantidad,
     
     }
-    console.log(carrito.cantidad);
     this.carritoService.agregarProducto(carrito);
     this.router.navigateByUrl('/carrito')
-    console.log(this.cantidad);
   }
 
   compraRapida(producto:Producto){

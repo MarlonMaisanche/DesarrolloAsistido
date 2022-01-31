@@ -7,4 +7,3 @@ export interface ProductoCarrito {
     Subtotal: number;
     Categoria?: string
 }
-

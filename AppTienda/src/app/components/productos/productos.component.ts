@@ -54,11 +54,10 @@ export class ProductosComponent implements OnInit {
   }
 
   productosRespaldo: Producto[] = []
+  hayProductos:boolean = true
 
   obtenerProductosPorCategorias(query:string){
-    console.log(query);
     let categorias:Producto[];
-    console.log('Respaldo', this.productosRespaldo);
     if(query == 'Todos'){
       this.productos = this.productosRespaldo
     }else{
@@ -67,16 +66,9 @@ export class ProductosComponent implements OnInit {
         if(element.Categoria==query)  
           categorias.push(element)
       });
+      this.hayProductos = categorias.length > 0
       this.productos = categorias
-
     }
-    // console.log('Categorias',categorias);
-    // console.log('Productos',this.productos);
-  }
-
-
-  imp(){
-    console.log(this.productos);
   }
 
   agregarACarrito(producto:Producto){

@@ -29,7 +29,6 @@ export class TablaComponent implements OnInit {
   }
 
   cambioCantidad(valor:number, id:string){
-    console.log(valor,id);
     let existe = this.carritoService.carroCompras.carrito.find(x => x.IdProducto == id)
     let producto = this.carritoService.carroCompras.productosCarrito.find(x => x.IdProducto == id)
     if(existe){

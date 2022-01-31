@@ -109,11 +109,8 @@
         <div class="col-12 col-md-9 col-sm-12">
             <div class="album py-3 bg-light">
                 <div class="container">
-                    <div class="row">
-
+                    <div *ngIf="hayProductos" class="row">
                         <div class="col-md-4 col-sm-12" *ngFor="let producto of productos  | paginate: { itemsPerPage: opcion, currentPage: page_number,totalItems: productos.length } ">
-                            <!-- <div class="col-md-3" *ngFor="let producto of productos"> -->
-
                             <div class="card mb-3 shadow-sm">
                                 <img *ngIf=" producto.Imagen != 'Sin imagen'; else  other_content" [routerLink]="['/detalle-producto', producto.Id]" class="card-img-top" src="{{producto.Imagen}}" alt="" ng-switch-when="Sin imagen">
                                 <ng-template #other_content>
@@ -123,10 +120,8 @@
                                     <img [routerLink]="['/tienda/producto', producto.Id]" class="card-img-top" src="{{producto.Imagen3}}" alt="" ng-switch-when="Sin imagen">
                                 </ng-template>
 
-                                <div class="card-body text-justify">
-                                    <a class="font-weight-bold" [routerLink]="['/tienda/producto', producto.Id]" style="font-size: 1.2rem;">
-                            {{producto.Nombre}}
-                          </a>
+                                <div class="card-body">
+                                    <a class="font-weight-bold" [routerLink]="['/tienda/producto', producto.Id]" style="font-size: 1.2rem;">{{producto.Nombre}}</a>
                                     <br>
 
                                     <small class="text-muted" style="font-size: 0.7rem;">Código: {{producto?.Id}}</small>
@@ -144,7 +139,7 @@
 
                                     <div class="d-flex">
                                         <button type="button" id="btnicon" class="btn btn-outline-primary m-auto" (click)="agregarACarrito(producto)">
-                            <!-- <i class="bi bi-cart-plus" style="font-size: 1.5rem; color: black;"></i> -->
+    
                             <i class="bi bi-cart font-italic"> Añadir al carrito</i> 
                           </button>
 
@@ -152,13 +147,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div *ngIf="this.productos.length == 0" class="alert alert-primary" role="alert" style="width: 100%;">
-                  No hay productos disponibles
-                </div> -->
-
-
-
                     </div>
+                    <div *ngIf="!hayProductos">
+                        <div class="alert alert-primary" role="alert">
+                            Aún no contamos con productos para esta categoría
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
