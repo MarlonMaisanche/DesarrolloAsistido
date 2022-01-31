@@ -62,3 +62,11 @@ body {
         display: none;
     }
 }
+
+footer {
+    min-height: 40px;
+    background-color: #191919;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}

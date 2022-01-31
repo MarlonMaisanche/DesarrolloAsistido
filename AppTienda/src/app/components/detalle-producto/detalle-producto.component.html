@@ -20,13 +20,11 @@
         </div>
         <div class="col-sm-6 col-md-6">
             <p class="h1">{{producto?.Nombre}}</p>
-            <!-- <div class="h2 text-muted">Precio: {{producto?.Precio | currency:'$' }} <span class="text-muted">c/u</span></div>
-            <p class="h2 ">Precio: {{producto?.Precio_Oferta | currency:'$' }} <span class="text-muted">c/u</span></p> -->
             <small *ngIf="producto?.Oferta" class="h2">
                 {{ producto.Precio_Oferta | currency:'$' }}
             </small>
-            <small *ngIf="!producto.Oferta" class="h2">{{ producto.Precio | currency:'$' }}</small>
-            <small *ngIf="producto.Oferta" class="h2 mt-4 text-muted "><s> {{ producto.Precio | currency:'$' }}</s></small>
+            <small *ngIf="!producto?.Oferta" class="h2">{{ producto.Precio | currency:'$' }}</small>
+            <small *ngIf="producto?.Oferta" class="h2 mt-4 text-muted "><s> {{ producto.Precio | currency:'$' }}</s></small>
             <div class="mt-4">
                 <input type="number" value="500" min="1" max="100" step="1" [(ngModel)]="cantidad">
                 <button type="button" id="btnicon" class="btn btn-outline-success ml-md-2 ml-sm-1" (click)="agregarACarrito(producto.Id)">
@@ -34,19 +32,12 @@
                 </button>
                 <button type="button" id="btnicon" class="btn btn-outline-dark font-italic ml-1" (click)="compraRapida(producto)">Compra rápida</button>
             </div>
-
-
-
             <div class="container p-5">
-
                 <p>{{producto?.Descripcion}}</p>
                 <hr>
                 <p class="font-weight-bold">Categoría: <span class="badge badge-primary">{{producto?.Categoria}}</span></p>
-
             </div>
-            <!-- <paypal-button-here /> -->
-            <!-- <ngx-paypal [config]="payPalConfig"></ngx-paypal> -->
-
         </div>
     </div>
 </div>
+<div style="height: 200px;"></div>

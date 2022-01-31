@@ -47,3 +47,7 @@ tfoot {
 .card-body {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
+
+.loading {
+    margin-top: 50%;
+}

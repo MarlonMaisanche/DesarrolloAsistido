@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5 mb-5">
+<div *ngIf="!loading" class="container-fluid mt-5 mb-5">
     <p class="h3 mt-3">Finalizar compra</p>
     <hr>
     <div class="row">
@@ -182,3 +182,18 @@
         </div>
     </div>
 </div>
+<div *ngIf="loading" class="text-center mt-5">
+    <div>
+        <p class="display-4 mb-5">Por favor espere un momento</p>
+    </div>
+    <div class="spinner-grow mr-3 mt-5" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow mr-3 mt-5" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow mt-5" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div style="height: 350px;"></div>

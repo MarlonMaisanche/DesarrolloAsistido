@@ -26,6 +26,7 @@ export class FinalizarCompraComponent implements OnInit {
   metodoEnvio: boolean = false
   itemEnvio: any
   total: number
+  loading :boolean = false
   productos: ProductoCarrito[]
   produto: ProductoCarrito
 
@@ -88,6 +89,8 @@ export class FinalizarCompraComponent implements OnInit {
       onClientAuthorization: (data) => {
         let envio: any
         let pedido: Pedido = null
+        this.loading = true;
+
         if (data.status == 'COMPLETED' && data.id) {
           if (this.metodoEnvio) {
 
@@ -109,7 +112,28 @@ export class FinalizarCompraComponent implements OnInit {
           }
 
           let fecha = new Date()
+          let mes:any = fecha.getMonth() + 1;
+          let dia:any = fecha.getDate();
+          let hora:any = fecha.getHours();
+          let minutos:any = fecha.getMinutes();
+          let segundos:any = fecha.getSeconds();
+          if(mes<10){
+            mes = '0'+ mes
+          }
+          if(dia<10){
+            dia = '0'+ dia
+          }
+          if(hora<10){
+            hora = '0'+ hora
+          }
+          if(minutos<10){
+            minutos = '0'+ minutos
+          }
+          if(segundos<10){
+            segundos = '0'+ segundos
+          }
 
+          
 
           pedido = {
             Cedula: this.infoForm.value['cedula'],
@@ -118,8 +142,7 @@ export class FinalizarCompraComponent implements OnInit {
             Correo: this.infoForm.value['correo'],
             Envio: envio,
             Estado: 'Pendiente',
-            Fecha: fecha.getFullYear() + '/' + fecha.getMonth() + '/' + fecha.getDay() + ' T ' +
-              fecha.getHours() + ':' + fecha.getMinutes() + ':' + fecha.getSeconds(),
+            Fecha: fecha.getFullYear() + mes+dia+hora+minutos+segundos,
             Id_Pago: data.id,
             Productos: this.itemsPedido(),
             Total: this.total
@@ -144,15 +167,17 @@ export class FinalizarCompraComponent implements OnInit {
 
       },
       onClick: (data, actions) => {
-        if(this.infoForm.invalid){
-          this.resetStatus()
-        }else{
-          if(this.metodoEnvio){
-            if(this.envioForm.value['envio'] == 2){
-              this.resetStatus()
-            }
-          }
-        }
+        // if(this.infoForm.invalid){
+        //   this.resetStatus()
+        // }else{
+        //   if(this.metodoEnvio){
+        //     if(this.envioForm.value['envio'] == 2){
+        //       if(this.envioForm.invalid){
+        //         this.resetStatus()
+        //       }
+        //     }
+        //   }
+        // }
       }
     };
     
