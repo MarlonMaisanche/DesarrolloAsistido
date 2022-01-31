@@ -1,20 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-
+import { AuthService } from '../../auth/services/auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent   {
 
-  constructor(private router:Router) { }
+  usuario$: Observable<any> = this.authService.auth.user
 
+  constructor(public authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService,
+  ) { }
 
-  ngOnInit(): void {
-    
+  async cerrarSesion() {
+    try {
+      await this.authService.logout()
+      this.router.navigateByUrl('')
+      this.toastr.info('', 'Hasta pronto!', {
+        timeOut: 1500,
+        closeButton: true
+      })
+
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  
 
 }

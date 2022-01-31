@@ -15,55 +15,29 @@
                 <a class="nav-link" [routerLink]="['/tienda']" routerLinkActive="active">Tienda</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <button class="btn my-2 my-sm-0" [routerLink]="['/auth/login']" routerLinkActive="active">Iniciar sesión</button>
+        <ul class="navbar-nav ml-auto" *ngIf="usuario$ | async as usuario; else login">
+            <li *ngIf="usuario" class="nav-item">
+                <a class="nav-link">{{usuario?.email}}</a>
+            </li>
+            <li *ngIf="usuario" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <button class="btn my-sm-0 ml-auto" routerLinkActive="active" (click)="cerrarSesion()">Cerrar sesión</button>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <button class="btn my-2 my-sm-0 ml-auto" [routerLink]="['/auth/registro']" routerLinkActive="active">Crear cuenta</button>
+                <app-carro-navbar class="carro ml-sm-none ml-md-none ml-lg-3"></app-carro-navbar>
             </li>
-            <app-carro-navbar class="carro ml-sm-none ml-md-none ml-lg-3"></app-carro-navbar>
-            <!-- <app-cuenta class="ml-sm-none ml-md-none ml-lg-3"></app-cuenta> -->
-
         </ul>
-
-
+        <ng-template #login>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <button class="btn my-sm-0" [routerLink]="['/auth/login']" routerLinkActive="active">Iniciar sesión</button>
+                </li>
+                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <button class="btn my-sm-0 ml-auto" [routerLink]="['/auth/registro']" routerLinkActive="active">Crear cuenta</button>
+                </li>
+                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <app-carro-navbar class="carro ml-sm-none ml-md-none ml-lg-3"></app-carro-navbar>
+                </li>
+            </ul>
+        </ng-template>
     </div>
 </nav>
-
-
-
-
-<!-- NO es mi codigo -->
-
-
-
-
-
-<!-- 
-<div class="mix">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header menuitem">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Menu Item 1</a></li>
-        <li><a href="#">Menu Item 2</a></li>
-        <li><a href="#">Menu Item 3</a></li>
-      </ul>
-    </div>
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-</div> -->
-
-<style>
-
-</style>

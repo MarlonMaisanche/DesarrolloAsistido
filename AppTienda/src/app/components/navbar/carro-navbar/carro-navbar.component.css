@@ -1,5 +1,6 @@
 ul {
-    background-color: black;
+    /* background-color: black; */
+    /* height: ; */
 }
 
 a {
@@ -25,6 +26,14 @@ a {
 
 .dropdown-carrito {
     position: relative;
+}
+
+@media only screen and (min-width: 991px) {
+    .dropdown-carrito {
+        position: relative;
+        top: -30px;
+        right: -5px;
+    }
 }
 
 .dropdown-menu-carrito {
@@ -74,5 +83,8 @@ a {
 @media only screen and (max-width: 991px) {
     .dropdown-carrito:hover .dropdown-menu-carrito {
         display: none !important;
+    }
+    .dropdown-carrito {
+        background-color: black;
     }
 }
