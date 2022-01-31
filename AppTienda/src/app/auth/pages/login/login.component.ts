@@ -1,10 +1,8 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { SocialAuthService } from 'angularx-social-login';
-// import { Provider, SocialLoginService } from 'ng8-social-login';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +16,6 @@ export class LoginComponent {
     private auth: AuthService,
     private router: Router,
     private toastr: ToastrService,
-     private authService: SocialAuthService
     ) {
     
   }
@@ -40,8 +37,6 @@ export class LoginComponent {
       
      const usuario = await this.auth.loginCorreo(this.authForm.value['correo'],this.authForm.value['password'])
       if (usuario){
-        let valor = usuario.user.multiFactor['user']['accessToken'];
-        localStorage.setItem('token',valor)
         this.router.navigateByUrl('');
         this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bien venido!',{
           timeOut:1500,
@@ -60,8 +55,6 @@ export class LoginComponent {
     try {
       await this.auth.loginGoogle().then(data =>{
         this.router.navigateByUrl('')
-        let valor = data.user.multiFactor['user']['accessToken'];
-        localStorage.setItem('token',valor)
         this.toastr.success(data.user.multiFactor['user']['displayName'],'Bien venido!',{
         timeOut:1500,
         closeButton:true
@@ -79,8 +72,6 @@ export class LoginComponent {
     try {
       this.auth.loginFacebook().then(data =>{
         this.router.navigateByUrl('')
-        let valor = data.user.multiFactor['user']['accessToken'];
-        localStorage.setItem('token',valor)
         this.toastr.success(data.user.multiFactor['user']['displayName'],'Bien venido!',{
         timeOut:1500,
         closeButton:true
@@ -93,9 +84,4 @@ export class LoginComponent {
          })
     }
   }
-
-
-
-
-
 }

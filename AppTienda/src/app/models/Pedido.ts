@@ -1,12 +1,13 @@
 import { ProductoCarrito } from './ProductoCarrito';
 export interface Pedido {
+    Id? : string,
     Id_Pago : string,
     Correo : string,
     Cliente : string,
     Cedula : string,
     Contacto : string,
     Estado : string,
-    Fecha: Date,
+    Fecha: string,
     Envio : Envio,
     Productos : any,
     Total: number

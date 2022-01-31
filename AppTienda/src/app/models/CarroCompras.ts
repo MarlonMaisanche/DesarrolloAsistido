@@ -22,11 +22,15 @@ export class CarroCompras {
     }
 
     agregarACarrito(carrito: Carrito) {
-        var existe = this.carrito.find(x => x.IdProducto == carrito.IdProducto)
+
+        if(!this.carrito){
+            this.carrito = []
+        }
+        let existe = this.carrito.find(x => x.IdProducto == carrito.IdProducto) 
+        
         if (!existe) {
             this.carrito.push(carrito)
             this.firestore.doc('Productos/' + carrito.IdProducto).get().subscribe(data => {
-                // console.log(data.data() as Producto);
                 let producto: Producto = data.data() as Producto;
                 let precio: number, subtotal: number;
                 let imagen: string;
@@ -59,7 +63,6 @@ export class CarroCompras {
             prod2.Cantidad = prod2.Cantidad + carrito.cantidad
             prod2.Subtotal = prod2.Cantidad * prod2.Precio
         }
-        // console.log(this.obtenerTotalCarrito());
         let valor = this.cryptService.Encrypt(JSON.stringify(this.carrito))
         localStorage.setItem('k@3!t0', valor);
         this.obtenerTotal()
@@ -91,7 +94,6 @@ export class CarroCompras {
             try {
                 let valor: string = localStorage.getItem('k@3!t0')
                 let carrito = this.cryptService.Decrypt(valor);
-                console.log(carrito);
                 this.carrito = JSON.parse(carrito)
 
                 this.carrito.forEach(async element => {
@@ -132,6 +134,9 @@ export class CarroCompras {
                 this.carrito = []
                 this.total$.next(0)
             }
+        }else{
+            let valor = this.cryptService.Encrypt(JSON.stringify(this.carrito))
+            localStorage.setItem('k@3!t0', valor);
         }
     }
 
