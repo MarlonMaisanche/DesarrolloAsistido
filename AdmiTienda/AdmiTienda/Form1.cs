@@ -15,12 +15,12 @@ using System.Threading;
 
 namespace AdmiTienda
 {
-    public partial class PRODUCTOS : Form
+    public partial class PRODUCTOFORM : Form
     {
         FirestoreDb db;
         Producto PRODUCTO;
 
-        public PRODUCTOS()
+        public PRODUCTOFORM()
         {
             InitializeComponent();
             BloquearCampos();
@@ -51,7 +51,7 @@ namespace AdmiTienda
             double precioOferta = 0;
             if (rbtOferta.Checked)
             {
-                precioOferta = Convert.ToDouble(txtPrecioOferta.Text);
+                precioOferta = Convert.ToDouble(txtPrecio.Text) - (Convert.ToDouble(txtPrecio.Text) * Convert.ToDouble(txtPrecioOferta.Text) / 100);
             }
             bool estado = false;
             if (rbtActivo.Checked)
@@ -125,7 +125,7 @@ namespace AdmiTienda
             double precioOferta = 0;
             if (rbtOferta.Checked)
             {
-                precioOferta = Convert.ToDouble(txtPrecioOferta.Text);
+                precioOferta = Convert.ToDouble(txtPrecio.Text) - (Convert.ToDouble(txtPrecio.Text) * Convert.ToDouble(txtPrecioOferta.Text) / 100);
             }
             bool estado = false;
             if (rbtActivo.Checked)
@@ -201,8 +201,6 @@ namespace AdmiTienda
 
                 this.PRODUCTO = producto;
                 this.PRODUCTO.Id = id;
-                Console.WriteLine(this.PRODUCTO.Id);
-
                 this.txtNombre.Text = producto.Nombre;
                 this.rbtActivo.Checked = producto.Estado ? true : false;
                 this.rbtInactivo.Checked = producto.Estado ? false : true;
@@ -218,12 +216,15 @@ namespace AdmiTienda
                 {
                     this.txtPrecioOferta.Enabled = true;
                     this.txtPrecio.Text = producto.Precio.ToString();
-                    this.txtPrecioOferta.Text = producto.Precio_Oferta.ToString();
+                    double porcentaje = (producto.Precio - producto.Precio_Oferta) * 100 / producto.Precio;
+                    this.txtPrecioOferta.Text = decimal.Round(Convert.ToDecimal( porcentaje),2).ToString();
                 }
                 else
                 {
                     this.txtPrecio.Text = producto.Precio.ToString();
                     this.txtPrecioOferta.Enabled = false;
+                    this.txtPrecioOferta.Text = String.Empty;
+
                 }
                }
             }
@@ -577,11 +578,6 @@ namespace AdmiTienda
             BloquearCampos();
         }
 
-        private void listaProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             _ = EliminarProductoAsync(PRODUCTO.Id);
@@ -674,6 +670,34 @@ namespace AdmiTienda
         private void comboBuscarCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarPorCategoria(comboBuscarCategoria.SelectedItem.ToString());
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioOferta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioOferta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

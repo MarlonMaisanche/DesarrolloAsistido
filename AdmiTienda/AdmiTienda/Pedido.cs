@@ -9,34 +9,24 @@ namespace AdmiTienda
 {
     class Pedido
     {
-        [FirestoreProperty]
         public string Id { get; set; }
 
-        [FirestoreProperty]
         public string Cedula { get; set; }
 
-        [FirestoreProperty]
         public string Cliente { get; set; }
 
-        [FirestoreProperty]
         public string Contacto { get; set; }
 
-        [FirestoreProperty]
         public string Correo { get; set; }
 
-        [FirestoreProperty]
         public string Estado { get; set; }
 
-        [FirestoreProperty]
         public DateTime Fecha { get; set; }
 
-        [FirestoreProperty]
         public string Id_Pago { get; set; }
 
-        [FirestoreProperty]
         public double Total { get; set; }
 
-        [FirestoreProperty]
         public List<Productos> Productos { get; set; }
 
         public Envio Envio { get; set; }
