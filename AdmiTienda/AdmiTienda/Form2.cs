@@ -12,27 +12,16 @@ using System.Windows.Forms;
 
 namespace AdmiTienda
 {
-    public partial class Form2 : Form
+    public partial class PEDIDOFORM : Form
     {
         FirestoreDb db;
+        List<Pedido> pedidos;
+        List<PedidoList> pedidosList;
+        Pedido PEDIDO = new Pedido();
 
-        private static string ApiKey = "AIzaSyBiniRAjfok3yAUBgyoy-ATFolT9sPY-yE";
-        private static string Bucket = "apptienda-130f3.appspot.com";
-        private static string AuthEmail = "yaciha8976@dukeoo.com";
-        private static string AuthPassword = "123456";
-        public Form2()
+        public PEDIDOFORM()
         {
             InitializeComponent();
-        }
-
-        string URL;
-        void seleccionaImagen()
-        {
-            OpenFileDialog imagenproducto = new OpenFileDialog();
-            imagenproducto.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            DialogResult res = imagenproducto.ShowDialog();
-            string ruta = imagenproducto.FileName;
-            this.URL = ruta;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -42,68 +31,9 @@ namespace AdmiTienda
             db = FirestoreDb.Create("apptienda-130f3");
             LimpiarCampos();
             ObtenerPedidos();
-
-        }
-
-        void obtenerfecha()
-        {
-            DateTime fecha = DateTime.Now;
-            string fecha1 = fecha.ToString();
-            fecha1 = fecha1.Replace(':', '0');
-            fecha1 = fecha1.Replace(' ', '1');
-            Console.WriteLine(fecha1);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //obtenerfecha();
-            //eliminarImagenAsync();
-            string imagenAActualizar = "https://firebasestorage.googleapis.com/v0/b/apptienda-130f3.appspot.com/o/productos%2Fgold%202.png?alt=media&token=4844132e-8087-4c3f-9e8f-a6d6c8ed3acf";
-            ActualizarImagenAsync(imagenAActualizar);
-        }
-
-        async Task ActualizarImagenAsync(string url)
-        {
-            string mensaje = await ImagenesCRUD.ActualizarImagen(url, this.URL);
-            Console.WriteLine(mensaje);
         }
 
 
-        async Task eliminarImagenAsync()
-        {
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
-            var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
-            var cancellation = new CancellationTokenSource();
-            string urlImagen = "https://firebasestorage.googleapis.com/v0/b/apptienda-130f3.appspot.com/o/productos%2Fdescarga%20(4).png?alt=media&token=18fad092-ba95-45ed-a641-a579af66ac79";
-            string url = "https://firebasestorage.googleapis.com/v0/b/apptienda-130f3.appspot.com/o/productos%2F";
-            int indexOfEndPath = urlImagen.IndexOf("?");
-            urlImagen = urlImagen.Substring(0, indexOfEndPath);
-            string nombreImagen = urlImagen.Replace(url, "");
-            nombreImagen = nombreImagen.Replace("%20", " ");
-            //Console.WriteLine(nombreImagen);
-            //Console.WriteLine(indexOfEndPath);
-            Console.WriteLine(nombreImagen);
-
-            var task = new FirebaseStorage(
-           Bucket,
-           new FirebaseStorageOptions
-           {
-               AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
-               ThrowOnCancel = true
-           })
-           .Child("productos")
-           .Child(nombreImagen)
-           .DeleteAsync();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            seleccionaImagen();
-        }
-
-
-        List<Pedido> pedidos;
-        List<PedidoList> pedidosList;
         async void ObtenerPedidos()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"apptienda.json";
@@ -112,8 +42,6 @@ namespace AdmiTienda
             db = FirestoreDb.Create("apptienda-130f3");
 
             Query pedidos = db.Collection("Pedidos");
-            //Query pedidosPendientes = collection.WhereEqualTo("Estado", "Pendiente");
-
             QuerySnapshot snap = await pedidos.GetSnapshotAsync();
             this.pedidos = new List<Pedido>();
             this.pedidosList = new List<PedidoList>();
@@ -153,8 +81,12 @@ namespace AdmiTienda
 
                 pedidoItem.Estado = pedido["Estado"].ToString();
                 pedidoList.Estado = pedido["Estado"].ToString();
-                pedidoItem.Fecha = Convert.ToDateTime(pedido["Fecha"]);
-                pedidoList.Fecha = Convert.ToDateTime(pedido["Fecha"]);
+                string formatString = "yyyyMMddHHmmss";
+
+
+                DateTime fecha = DateTime.ParseExact(pedido["Fecha"].ToString(), formatString, null);
+                pedidoItem.Fecha = fecha;
+                pedidoList.Fecha = fecha;
                 pedidoItem.Id_Pago = pedido["Id_Pago"].ToString();
                 pedidoList.Id_Pago = pedido["Id_Pago"].ToString();
                 pedidoItem.Productos = new List<Productos>();
@@ -170,82 +102,65 @@ namespace AdmiTienda
                     pp.Subtotal = Convert.ToDouble(producto["Subtotal"]);
                     pedidoItem.Productos.Add(pp);
                 }
-                //pedidoItem.Productos = 
                 pedidoItem.Total = Convert.ToDouble(pedido["Total"]);
                 pedidoList.Total = Convert.ToDouble(pedido["Total"]);
-
                 this.pedidos.Add(pedidoItem);
                 this.pedidosList.Add(pedidoList);
             }
-
-            //FiltrarPorFecha(1);
             listaPedidos.DataSource = this.pedidosList;
             listaFiltrada = this.pedidosList;
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ObtenerPedidos();
-            //obtenerFecha();
-        }
-
         
         private void FiltrarPorFecha(int opcion)
         {
-            //var lista = { };
-            DateTime fecha = DateTime.Today;
-            switch (opcion)
+            try
             {
-                case 1:
-
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha.Day == DateTime.Today.Day
-                    && x.Fecha.Month == DateTime.Today.Month 
-                    && x.Fecha.Year == DateTime.Today.Year).ToList();
-
-                    break;
-                case 2:
-
-                    fecha = DateTime.Today.AddDays(-7);
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha ).ToList();
-
-                    break;
-                case 3:
-                    fecha = DateTime.Today.AddDays(-30);
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
-                    break;
-                case 4:
-                    fecha = DateTime.Today.AddDays(-90);
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
-
-                    break;
-                case 5:
-                    fecha = DateTime.Today.AddDays(-180);
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
-                    break;
-                case 6:
-                    fecha = DateTime.Today.AddDays(-365);
-                    this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
-                    break;
-
+                DateTime fecha = DateTime.Today;
+                switch (opcion)
+                {
+                    case 1:
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha.Day == DateTime.Today.Day
+                        && x.Fecha.Month == DateTime.Today.Month
+                        && x.Fecha.Year == DateTime.Today.Year).ToList();
+                        break;
+                    case 2:
+                        fecha = DateTime.Today.AddDays(-7);
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
+                        break;
+                    case 3:
+                        fecha = DateTime.Today.AddDays(-30);
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
+                        break;
+                    case 4:
+                        fecha = DateTime.Today.AddDays(-90);
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
+                        break;
+                    case 5:
+                        fecha = DateTime.Today.AddDays(-180);
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
+                        break;
+                    case 6:
+                        fecha = DateTime.Today.AddDays(-365);
+                        this.listaPedidos.DataSource = pedidosList.Where(x => x.Fecha > fecha).ToList();
+                        break;
+                }
+            }
+            catch
+            {
             }
         }
 
         private void FiltrarConFecha(int opcion)
         {
-            //var lista = { };
-            //List<PedidoList> lista = (List<PedidoList>)this.listaPedidos.DataSource;
             DateTime fecha = DateTime.Today;
             switch (opcion)
             {
                 case 1:
-
                     this.listaPedidos.DataSource = listaFiltrada.Where(x => x.Fecha.Day == DateTime.Today.Day
                     && x.Fecha.Month == DateTime.Today.Month
                     && x.Fecha.Year == DateTime.Today.Year).ToList();
-
                     break;
                 case 2:
-
                     fecha = DateTime.Today.AddDays(-7);
                     this.listaPedidos.DataSource = listaFiltrada.Where(x => x.Fecha > fecha).ToList();
 
@@ -257,7 +172,6 @@ namespace AdmiTienda
                 case 4:
                     fecha = DateTime.Today.AddDays(-90);
                     this.listaPedidos.DataSource = listaFiltrada.Where(x => x.Fecha > fecha).ToList();
-
                     break;
                 case 5:
                     fecha = DateTime.Today.AddDays(-180);
@@ -275,7 +189,6 @@ namespace AdmiTienda
             if (comboBusqueda.SelectedIndex == 0 || comboBusqueda.SelectedIndex == 1 || 
                 comboBusqueda.SelectedIndex == 2)
             {
-
                 txtBusqueda.Visible = true;
                 txtBusqueda.Text = String.Empty;
                 groupBusquedaEstado.Visible = false;
@@ -300,11 +213,9 @@ namespace AdmiTienda
                 groupBusquedaEstado.Visible = true;
                 comboBuscarEstado.Visible = false;
                 comboBuscarConFecha.Visible = true;
-
                 groupBusquedaEstado.Text = "MÉTODO ENVÍO";
                 rbtTrue.Text = "RETIRO LOCAL";
                 rbtFalse.Text = "A DOMICILIO";
-            
             }
             else if (comboBusqueda.SelectedIndex == 4 || comboBusqueda.SelectedIndex == 5)
             {
@@ -328,25 +239,10 @@ namespace AdmiTienda
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBuscarEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarPorEstado();
             FiltrarConFecha(comboBuscarConFecha.SelectedIndex + 1);
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBuscarFecha_SelectedIndexChanged(object sender, EventArgs e)
@@ -380,7 +276,6 @@ namespace AdmiTienda
                     estado = "Entregado";
                     break;
             }
-
             listaPedidos.DataSource = this.pedidosList.Where(x => x.Estado == estado).ToList();
             listaFiltrada = this.pedidosList.Where(x => x.Estado == estado).ToList();
         }
@@ -401,9 +296,7 @@ namespace AdmiTienda
                     listaPedidos.DataSource = this.pedidosList.Where(x => x.Cedula.ToLower().Contains(txtBusqueda.Text.ToLower())).ToList();
                     break;
             }
-
             listaFiltrada = (List<PedidoList>)listaPedidos.DataSource;
-
         }
 
         private void rbtTrue_CheckedChanged(object sender, EventArgs e)
@@ -423,12 +316,6 @@ namespace AdmiTienda
             FiltrarConFecha(comboBuscarConFecha.SelectedIndex+1);
         }
 
-        private void listaPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        Pedido PEDIDO = new Pedido();
         private void listaPedidos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -444,6 +331,7 @@ namespace AdmiTienda
                 txtPago.Text = this.PEDIDO.Id_Pago;
                 txtTotal.Text = this.PEDIDO.Total.ToString() + " $";
                 txtContacto.Text = this.PEDIDO.Contacto;
+                txtEstado.Text = this.PEDIDO.Estado;
                 detalleProductos.DataSource = this.PEDIDO.Productos;
 
                 if (this.PEDIDO.Envio.Metodo == "A domicilio")
@@ -469,7 +357,7 @@ namespace AdmiTienda
                 }else if (this.PEDIDO.Estado == "Aceptado")
                 {
                     btnAceptar.Enabled = false;
-                    btnCancelar.Enabled = false;
+                    btnCancelar.Enabled = true;
                     btnEntregar.Enabled = true;
                 }else if (this.PEDIDO.Estado == "Entregado" || this.PEDIDO.Estado == "Cancelado")
                 {
@@ -497,6 +385,7 @@ namespace AdmiTienda
             txtMetodo.Text = String.Empty;
             txtPago.Text = String.Empty;
             txtTotal.Text = String.Empty;
+            txtEstado.Text = String.Empty;
             txtReceptor.Text = String.Empty;
             detalleProductos.DataSource = null;
             btnAceptar.Enabled = false;
@@ -506,6 +395,29 @@ namespace AdmiTienda
 
         async Task EditarPedidoAsync(string estado)
         {
+            DateTime fecha = this.PEDIDO.Fecha;
+            int anio = fecha.Year;
+            int mes = fecha.Month;
+            int dia = fecha.Day;
+            int hora = fecha.Hour;
+            int min = fecha.Minute;
+            int seg = fecha.Second;
+            string mesString = "0";
+            string diaString = "0";
+            string horaString = "0";
+            string minString = "0";
+            string segString = "0";
+
+            mesString = mes < 10 ? mesString + mes.ToString() : mes.ToString();
+            diaString = dia < 10 ? diaString + dia.ToString() : dia.ToString();
+            horaString = hora < 10 ? horaString + hora.ToString() : hora.ToString();
+            minString = min < 10 ?  minString + min.ToString() : min.ToString();
+            segString = min < 10 ? segString + seg.ToString() : seg.ToString();
+            
+
+
+            string fech = anio.ToString() + mesString + diaString + horaString + minString + segString;
+            Console.WriteLine(fecha);
             Dictionary<string, object> docData = new Dictionary<string, object>
             {
                 { "Cedula", this.PEDIDO.Cedula },
@@ -513,11 +425,10 @@ namespace AdmiTienda
                 { "Contacto", this.PEDIDO.Contacto },
                 { "Correo", this.PEDIDO.Correo },
                 { "Estado", estado },
-                { "Fecha", this.PEDIDO.Fecha.ToString() },
+                { "Fecha", fech },
                 { "Id_Pago", this.PEDIDO.Id_Pago },
                 { "Total", this.PEDIDO.Total },
             };
-
 
             ArrayList productos = new ArrayList();
             foreach (Productos producto in this.PEDIDO.Productos)
@@ -596,14 +507,23 @@ namespace AdmiTienda
                         "<p>Nos comunicaremos al número " + this.PEDIDO.Contacto + " el día de la entrega</p>"+
                         "<p>Gracias por su compra!</p>";
                 }
+                else
+                {
+                    entrega = "<p>La fecha de entrega se relizará el día que se quede deacuerdo con el cliente ( en días hábiles )</p>" +
+                        "<p>Horario de atención del local: 09:00 AM - 06:00 PM</p>" +
+                        "<p>Dirección del local: Tungurahua - Ambato, Dirección del local 12345</p>" +
+                         "<p>Se entregará unicamente al portador de la cédula o RUC N°: " +
+                        this.PEDIDO.Cedula + "</p>" +
+                        "<p>Nos comunicaremos al número " + this.PEDIDO.Contacto + " para acordar el día de la entrega</p>" +
+                        "<p>Gracias por su compra!</p>";
+                }
 
                 mensaje = mensaje  + "<h2>Ha recibido tu pedido</h2>"+
-                    "<p>Gracias por su compra!</p>"+
                     "<small>Si desea cancelar(anular) el pedido responder este email y lo contactaremos para verificar la anulación</small>";
             }
             else if(estado == "Cancelado")
             {
-                mensaje = mensaje + "<h2>Ha cancelado tu pedido</h2><br>"+
+                mensaje = mensaje + "<h2>Ha cancelado/rechazado tu pedido</h2><br>"+
                     "<p>Se realizará la devolución del dinero del pedido en un máximo de 24 horas</p>";
             }
             else
@@ -621,23 +541,15 @@ namespace AdmiTienda
             if (MessageBox.Show("¿Seguro desea aceptar este pedido?\n Verifique antes que los productos se encuentren disponibles en la cantidad especificada",
                  "Canfirmación de actualización de estado del pedido" ,
                  MessageBoxButtons.YesNo,
-                 MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
+                _ = EditarPedidoAsync("Aceptado");
             }
-            _ = EditarPedidoAsync("Aceptado");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (this.pedidosList != null && this.pedidosList.Count > 0)
-            {
-                listaPedidos.DataSource = pedidosList;
-            }
-            else
-            {
-                ObtenerPedidos();
-            }
+            ObtenerPedidos();
         }
 
 
@@ -676,10 +588,12 @@ namespace AdmiTienda
 
         private void btnPedidosHoy_Click(object sender, EventArgs e)
         {
-            if(this.pedidosList != null && this.pedidosList.Count > 0)
-            {
-                FiltrarPorFecha(1);
-            }
+            FiltrarPorFecha(1);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
