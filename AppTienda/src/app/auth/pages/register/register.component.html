@@ -27,7 +27,7 @@
     <div class=" mt-3 d-flex flex-column align-items-center">
         <button (click)="registrarUsuario()" class="btn btn-primary mb-3" [disabled]="this.authForm.invalid">Registrarse</button>
         <p class="text-center text-muted">- o -</p>
-        <button class="botonFacebook mb-3"><i class="bi bi-facebook" style="font-size: 1.3rem;"
+        <button (click)="loginFacebook()" class="botonFacebook mb-3"><i class="bi bi-facebook" style="font-size: 1.3rem;"
           ></i> Resgistrarse con Facebook</button>
         <button (click)="registrarGoogle()" class="botonGoogle"><i class="bi bi-google" style="font-size: 1.3rem;"></i> Registrarse con Google</button>
         <a routerLink="/auth/login" class="mt-3 text-muted">Ya tienes una cuenta? Inicia sesión...</a>

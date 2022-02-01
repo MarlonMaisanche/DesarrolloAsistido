@@ -32,7 +32,7 @@ export class RegisterComponent {
         if(usuario){
 
           this.router.navigateByUrl('')
-          this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bien venido!',{
+          this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bienvenido!',{
             timeOut:1500,
             closeButton:true
              })
@@ -54,7 +54,7 @@ export class RegisterComponent {
         const usuario = data.user.multiFactor['user']
         if(usuario){
           this.router.navigateByUrl('')
-          this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bien venido!',{
+          this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bienvenido!',{
             timeOut:1500,
             closeButton:true
              })
@@ -73,18 +73,21 @@ export class RegisterComponent {
         const usuario = data.user.multiFactor['user']
         if(usuario){
           
-          this.toastr.success(data.user.multiFactor['user']['displayName'],'Bien venido!',{
+          this.toastr.success(data.user.multiFactor['user']['displayName'],'Bienvenido!',{
           timeOut:1500,
           closeButton:true
            })
            this.router.navigateByUrl('')
         }
        })
-    } catch {
+    } catch (error){
       this.toastr.error('No se pudo iniciar sesión' ,'Ha ocurrido un problema!',{
         timeOut:1500,
         closeButton:true
          })
+        console.error(error);
+        
+         
     }
   }
 }

@@ -38,7 +38,7 @@ export class LoginComponent {
      const usuario = await this.auth.loginCorreo(this.authForm.value['correo'],this.authForm.value['password'])
       if (usuario){
         this.router.navigateByUrl('');
-        this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bien venido!',{
+        this.toastr.success(usuario.user.multiFactor['user']['displayName'] ,'Bienvenido!',{
           timeOut:1500,
           closeButton:true
            })
@@ -55,7 +55,7 @@ export class LoginComponent {
     try {
       await this.auth.loginGoogle().then(data =>{
         this.router.navigateByUrl('')
-        this.toastr.success(data.user.multiFactor['user']['displayName'],'Bien venido!',{
+        this.toastr.success(data.user.multiFactor['user']['displayName'],'Bienvenido!',{
         timeOut:1500,
         closeButton:true
          })
@@ -72,7 +72,7 @@ export class LoginComponent {
     try {
       this.auth.loginFacebook().then(data =>{
         this.router.navigateByUrl('')
-        this.toastr.success(data.user.multiFactor['user']['displayName'],'Bien venido!',{
+        this.toastr.success(data.user.multiFactor['user']['displayName'],'Bienvenido!',{
         timeOut:1500,
         closeButton:true
          })
