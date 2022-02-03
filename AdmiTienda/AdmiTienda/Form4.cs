@@ -90,11 +90,8 @@ namespace AdmiTienda
 
         private void MENUFORM_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Seguro que dese salir?", "Salir",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
-            {
-                this.Close();
-                Application.Exit();
-            } 
+            this.Hide();
+            this.formLogin.Show();
         }
     }
 }
