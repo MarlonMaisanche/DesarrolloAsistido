@@ -7,7 +7,10 @@ import { AuthService } from '../../auth/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent{
-
+/**
+ * 
+ * @param auth 
+ */
   constructor(private auth:AuthService) { }
   logout(){
     this.auth.logout()

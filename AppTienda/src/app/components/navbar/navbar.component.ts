@@ -11,12 +11,19 @@ import { ToastrService } from 'ngx-toastr';
 export class NavbarComponent   {
 
   usuario$: Observable<any> = this.authService.auth.user
-
+/**
+ * Constructor de la barra de navegación
+ * @param authService 
+ * @param router 
+ * @param toastr 
+ */
   constructor(public authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
   ) { }
-
+/**
+ * Cierra la session actual
+ */
   async cerrarSesion() {
     try {
       await this.authService.logout()

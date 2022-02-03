@@ -17,7 +17,13 @@ export class DetalleProductoComponent implements OnInit {
   producto: Producto
   cantidad: number = 1
   imagenes:string[] = [];
-
+/**
+ * 
+ * @param productosService servicio producto
+ * @param ruta 
+ * @param router 
+ * @param carritoService 
+ */
   constructor(private productosService:ProductosService,
     private ruta: ActivatedRoute,
     private router:Router,
@@ -26,7 +32,10 @@ export class DetalleProductoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProducto(this.ruta.snapshot.params.id)
   }
-
+/**
+ * Obtine información sobre el producto 
+ * @param Id Identificador del producto
+ */
   obtenerProducto(Id:string){
     if(Id != null){
       this.productosService.getProducto(Id).subscribe(data =>{
@@ -45,7 +54,10 @@ export class DetalleProductoComponent implements OnInit {
 
     }
   }
-
+/**
+ * Agrega el producto al carrito de compras
+ * @param Id Identificador del producto
+ */
   agregarACarrito(Id:string){
     let carrito:Carrito = {
       IdProducto : Id,
@@ -55,7 +67,10 @@ export class DetalleProductoComponent implements OnInit {
     this.carritoService.agregarProducto(carrito);
     this.router.navigateByUrl('/carrito')
   }
-
+/**
+ * Redirecciona a la pagina  de pago 
+ * @param producto 
+ */
   compraRapida(producto:Producto){
     let precio = producto.Oferta ? producto.Precio_Oferta : producto.Precio
     let productoRapido:ProductoCarrito = {

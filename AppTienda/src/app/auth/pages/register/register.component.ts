@@ -23,7 +23,9 @@ export class RegisterComponent {
     password:['',[Validators.required,Validators.minLength(6)]],
     password2:['',[Validators.required,Validators.minLength(6)]],
   })
-
+/**
+ * Funcion para registrar un usuario con correo y contraseña 
+ */
   async registrarUsuario(){
     try {
       if(this.authForm.value['password'] == this.authForm.value['password2']){
@@ -47,7 +49,9 @@ export class RegisterComponent {
     }
     
   }
-
+/**
+ * Funcion para registrar un usuario utilizando el api de google
+ */
   async registrarGoogle(){
     try {
       this.auth.loginGoogle().then(data =>{
@@ -67,6 +71,9 @@ export class RegisterComponent {
          })
     }
   }
+  /**
+ * Funcion para registrar un usuario utilizando el api de facebook
+ */
   async loginFacebook(){
     try {
       this.auth.loginFacebook().then(data =>{

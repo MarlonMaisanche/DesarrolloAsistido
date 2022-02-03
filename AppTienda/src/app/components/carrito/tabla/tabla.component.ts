@@ -15,11 +15,17 @@ export class TablaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/**
+ * Suma todos los items del carrito de compras
+ * @param carrito 
+ */
   sumar(carrito:Carrito){
     this.carritoService.agregarProducto(carrito)
   }
-
+/**
+ * Elimina un item del carrito de compras
+ * @param Id 
+ */
   eliminarDeCarrito(Id:string){
     this.carritoService.eliminarProducto(Id)
     this.toastr.error('Se eliminó un producto del carrito','Carrito!',{
@@ -27,7 +33,11 @@ export class TablaComponent implements OnInit {
       closeButton:true
     })
   }
-
+/**
+ * Cambia la cantidad de un item del carrito
+ * @param valor cantidad nueva
+ * @param id identificador del carrito
+ */
   cambioCantidad(valor:number, id:string){
     let existe = this.carritoService.carroCompras.carrito.find(x => x.IdProducto == id)
     let producto = this.carritoService.carroCompras.productosCarrito.find(x => x.IdProducto == id)

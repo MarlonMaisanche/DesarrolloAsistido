@@ -26,7 +26,9 @@ export class LoginComponent {
     recuerdame: [false],
   })
 
-
+/**
+ * Funcion para iniciar sesion con correo y contraseña  
+ */
   async login() {
     try {
       if (this.authForm.value['recuerdame']) {
@@ -50,7 +52,9 @@ export class LoginComponent {
          })
     }
   }
-
+/**
+ * Funcion para iniciar sesion con google 
+ */
   async loginGoogle() {
     try {
       await this.auth.loginGoogle().then(data =>{
@@ -67,7 +71,9 @@ export class LoginComponent {
          })
     }
   }
-
+/**
+ * Funcion para iniciar sesion con facebook 
+ */
   async loginFacebook(){
     try {
       this.auth.loginFacebook().then(data =>{

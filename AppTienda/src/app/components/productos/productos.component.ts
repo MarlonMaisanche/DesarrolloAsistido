@@ -19,7 +19,12 @@ export class ProductosComponent implements OnInit {
   opciones:number [] = [4,10,20,50,100,200]
 
 
-
+/**
+ * Constructor de ventana de productos 
+ * @param productosService 
+ * @param carritoService 
+ * @param toastr 
+ */
   constructor(private productosService: ProductosService,
     private carritoService:CarroDeComprasService,
     private toastr: ToastrService) { }
@@ -27,7 +32,9 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProductos()
   }
-
+/**
+ * Obtine una lista de los productos disponibles 
+ */
   obtenerProductos():void{
     this.productosService.getAll().pipe(
       map(changes =>
@@ -55,7 +62,10 @@ export class ProductosComponent implements OnInit {
 
   productosRespaldo: Producto[] = []
   hayProductos:boolean = true
-
+/**
+ * Filtra los productos por categorias 
+ * @param query nombre categoria 
+ */
   obtenerProductosPorCategorias(query:string){
     let categorias:Producto[];
     if(query == 'Todos'){
@@ -70,7 +80,10 @@ export class ProductosComponent implements OnInit {
       this.productos = categorias
     }
   }
-
+/**
+ * Agrega el producto al carrito de compras
+ * @param producto 
+ */
   agregarACarrito(producto:Producto){
     const carrito:Carrito = {
       IdProducto: producto.Id,

@@ -20,7 +20,9 @@ export class RecoverComponent implements OnInit {
   authForm: FormGroup = this.fb.group({
     correo: [localStorage.getItem('email') || '', [Validators.required, Validators.email]],
   })
-
+/**
+ * Funcion para recuperar contraseña olvidada
+ */
   recuperar(){
     this.auth.recuperarCuenta(this.authForm.value['correo'])
     this.toastr.success('','Correo enviado!',{

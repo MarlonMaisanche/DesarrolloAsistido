@@ -15,11 +15,15 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/**
+ * Retorna a la pagina de productos 
+ */
   volverATienda(){
     this.router.navigateByUrl('/tienda');
   }
-
+/**
+ * Se redirige a la pagina de compras
+ */
   comprar(){
     this.carritoService.finalizarCompra()
     this.router.navigateByUrl('/tienda/finalizar-compra')

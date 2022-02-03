@@ -30,7 +30,14 @@ export class FinalizarCompraComponent implements OnInit {
   productos: ProductoCarrito[]
   produto: ProductoCarrito
 
-
+/**
+ * Constructor 
+ * @param carritoService 
+ * @param formBuilder 
+ * @param finalizarCompra 
+ * @param router 
+ * @param toastr 
+ */
   constructor(
     public carritoService: CarroDeComprasService,
     private formBuilder: FormBuilder,
@@ -55,7 +62,9 @@ export class FinalizarCompraComponent implements OnInit {
     }
     this.cargarProvincias()
   }
-
+/**
+ * Inicia la configuración  para la pasarela de pagos PAYPAL
+ */
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'USD',
@@ -182,7 +191,9 @@ export class FinalizarCompraComponent implements OnInit {
     };
     
   }
-
+/**
+ * Restaura a los valores iniciales 
+ */
   private resetStatus(): void {
     this.toastr.error('' ,'Verifique los datos!',{
       timeOut:1500,
@@ -215,7 +226,10 @@ export class FinalizarCompraComponent implements OnInit {
     }
     return items
   }
-
+/**
+ * Obtinene todos los items del carrito de compras
+ * @returns items en el carrito de compras
+ */
   obtenerItems(): any {
     const items: any[] = []
     let item = {}
@@ -235,19 +249,30 @@ export class FinalizarCompraComponent implements OnInit {
     }
     return items
   }
-
+/**
+ * Obtiene las provincias 
+ */
   cargarProvincias() {
     this.provincias = Provincias.Provincias
   }
-
+/**
+ * Obtiene los cantones de la provincia seleccionada
+ * @param provincia 
+ */
   cargarCantones(provincia: string) {
     this.cantones = Provincias?.[provincia].sort() || null
   }
-
+/**
+ * Selecciona un canton
+ * @param provincia 
+ */
   onSelect(provincia: any): void {
     this.cargarCantones(provincia.value)
   }
-
+/**
+ * Llena la información del envio 
+ * @param event determina si se requiere envio
+ */
   envio(event: any) {
     console.log(event.value);
     if (event.value == '1') {
@@ -271,7 +296,10 @@ export class FinalizarCompraComponent implements OnInit {
       }
     }
   }
-
+/**
+ * Genera un formulario para llenar los datos personales
+ * @returns retorna un formunario con los datos personales
+ */
   crearFormularioInfo() {
     return this.formBuilder.group({
       correo: ['', [Validators.required, Validators.email]],
@@ -281,7 +309,10 @@ export class FinalizarCompraComponent implements OnInit {
       telefono: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(7)]]
     })
   }
-
+/**
+ * Genera un formulario para obtener los datos de envio
+ * @returns retorna un formulario para llenar los datos de envios
+ */
   crearFormularioEnvio() {
     return this.formBuilder.group({
       envio: ['', [Validators.required]],

@@ -13,7 +13,12 @@ export class LoginGuard implements CanActivate {
     private router: Router) {
       
   }
-
+/**
+ * Impide que se abra la pestaña de Login cuando el usuario ya iniceio sesion
+ * @param route 
+ * @param state 
+ * @returns 
+ */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {

@@ -16,10 +16,16 @@ export class OrdenComponent implements OnInit {
   'datos de la tarjeta, formularios de identificación o envío incompletos,etc.). Por favor intentelo más tarde.'
   pedido:Pedido
   loading:boolean = true
-
+/**
+ * Constructor  de la Orden Compra 
+ * @param finalizarCompraService 
+ * @param aRoute 
+ */
   constructor(private finalizarCompraService:FinalizarCompraService,
     private aRoute:ActivatedRoute) { }
-
+/**
+ * Se determina si se puede completar la orden de compra 
+ */
   ngOnInit(): void {
     let id =  this.aRoute.snapshot.paramMap.get('id');
     if(id){

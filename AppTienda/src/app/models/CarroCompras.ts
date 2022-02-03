@@ -12,7 +12,11 @@ export class CarroCompras {
     productoRapido: ProductoCarrito
     total$ = new Subject<number>()
     total: number
-
+/**
+ * 
+ * @param cryptService servicio de encriptación
+ * @param firestore 
+ */
     constructor(
         private cryptService: EncriptarDesService,
         private firestore: AngularFirestore
@@ -20,7 +24,10 @@ export class CarroCompras {
         this.productosCarrito = []
         this.obtenerCarrito()
     }
-
+/**
+ * Agrega un item al carrito
+ * @param carrito 
+ */
     agregarACarrito(carrito: Carrito) {
 
         if(!this.carrito){
@@ -67,7 +74,10 @@ export class CarroCompras {
         localStorage.setItem('k@3!t0', valor);
         this.obtenerTotal()
     }
-
+/**
+ * Realiza un acompra rapida
+ * @param producto 
+ */
     establecerProductoRapido(producto: ProductoCarrito) {
         if (producto) {
             this.productoRapido = producto
@@ -75,11 +85,16 @@ export class CarroCompras {
             this.productoRapido = null
         }
     }
-
+/**
+ * Comprueba tipo de compra se realizara
+ * @returns 
+ */
     existeProductoRapido(): boolean {
         return this.productoRapido ? true : false;
     }
-
+/**
+ * Obtiene el total de la orden de compra
+ */
     obtenerTotal() {
         let total = 0
         this.productosCarrito.forEach(element => {
@@ -88,7 +103,9 @@ export class CarroCompras {
         this.total$.next(total)
         this.total = total
     }
-
+/**
+ * Obtiene los datos del carrito
+ */
     obtenerCarrito() {
         if (localStorage.getItem('k@3!t0')) {
             try {
@@ -139,7 +156,10 @@ export class CarroCompras {
             localStorage.setItem('k@3!t0', valor);
         }
     }
-
+/**
+ * Elimina un item del producto
+ * @param Id Identificardor del producto
+ */
     eliminarProducto(Id: string) {
         let indiceCarrito: number = this.carrito.findIndex(x => x.IdProducto == Id)
         let indiceProductos: number = this.productosCarrito.findIndex(x => x.IdProducto == Id)
@@ -149,7 +169,9 @@ export class CarroCompras {
         localStorage.setItem('k@3!t0', valor);
         this.obtenerTotal()
     }
-
+/**
+ * Guarda los items del carrito 
+ */
     guardarCambios() {
         let valor = this.cryptService.Encrypt(JSON.stringify(this.carrito))
         localStorage.setItem('k@3!t0', valor);
