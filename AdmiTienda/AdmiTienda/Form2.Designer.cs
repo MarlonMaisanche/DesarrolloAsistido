@@ -1,7 +1,7 @@
 ﻿
 namespace AdmiTienda
 {
-    partial class Form2
+    partial class PEDIDOFORM
     {
         /// <summary>
         /// Required designer variable.
@@ -38,9 +38,12 @@ namespace AdmiTienda
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEntregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMetodo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtReceptor = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDirEnvio = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -68,11 +71,10 @@ namespace AdmiTienda
             this.rbtFalse = new System.Windows.Forms.RadioButton();
             this.rbtTrue = new System.Windows.Forms.RadioButton();
             this.comboBuscarConFecha = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtReceptor = new System.Windows.Forms.Label();
             this.lblTemporalidad = new System.Windows.Forms.Label();
             this.btnPedidosHoy = new System.Windows.Forms.Button();
+            this.txtEstado = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaPedidos)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,10 +85,10 @@ namespace AdmiTienda
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(18, 11);
+            this.button7.Location = new System.Drawing.Point(12, 15);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(181, 43);
-            this.button7.TabIndex = 27;
+            this.button7.TabIndex = 0;
             this.button7.Text = "TODOS LOS PEDIDOS / REFRESCAR";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -94,7 +96,7 @@ namespace AdmiTienda
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(314, 27);
+            this.label7.Location = new System.Drawing.Point(217, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 37;
@@ -111,18 +113,18 @@ namespace AdmiTienda
             "POR MÉTODO ENVÍO",
             "POR ESTADO",
             "POR FECHA"});
-            this.comboBusqueda.Location = new System.Drawing.Point(413, 23);
+            this.comboBusqueda.Location = new System.Drawing.Point(316, 11);
             this.comboBusqueda.Name = "comboBusqueda";
-            this.comboBusqueda.Size = new System.Drawing.Size(134, 21);
-            this.comboBusqueda.TabIndex = 36;
+            this.comboBusqueda.Size = new System.Drawing.Size(175, 21);
+            this.comboBusqueda.TabIndex = 2;
             this.comboBusqueda.SelectedIndexChanged += new System.EventHandler(this.comboBusqueda_SelectedIndexChanged);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.listaPedidos);
-            this.groupBox4.Location = new System.Drawing.Point(12, 86);
+            this.groupBox4.Location = new System.Drawing.Point(12, 131);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(856, 525);
+            this.groupBox4.Size = new System.Drawing.Size(600, 566);
             this.groupBox4.TabIndex = 39;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "PEDIDOS DE LA TIENDA";
@@ -132,21 +134,21 @@ namespace AdmiTienda
             this.listaPedidos.AllowUserToOrderColumns = true;
             this.listaPedidos.AllowUserToResizeColumns = false;
             this.listaPedidos.AllowUserToResizeRows = false;
+            this.listaPedidos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.listaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listaPedidos.Location = new System.Drawing.Point(6, 19);
             this.listaPedidos.Name = "listaPedidos";
             this.listaPedidos.ReadOnly = true;
-            this.listaPedidos.Size = new System.Drawing.Size(844, 500);
+            this.listaPedidos.Size = new System.Drawing.Size(588, 541);
             this.listaPedidos.TabIndex = 25;
-            this.listaPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaPedidos_CellContentClick);
             this.listaPedidos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.listaPedidos_CellMouseClick);
             // 
             // btnAceptar
             // 
             this.btnAceptar.Enabled = false;
-            this.btnAceptar.Location = new System.Drawing.Point(283, 490);
+            this.btnAceptar.Location = new System.Drawing.Point(288, 617);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(127, 43);
+            this.btnAceptar.Size = new System.Drawing.Size(136, 43);
             this.btnAceptar.TabIndex = 40;
             this.btnAceptar.Text = "ACEPTAR PEDIDO";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -155,7 +157,7 @@ namespace AdmiTienda
             // btnCancelar
             // 
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(17, 490);
+            this.btnCancelar.Location = new System.Drawing.Point(15, 617);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(127, 43);
             this.btnCancelar.TabIndex = 41;
@@ -166,9 +168,9 @@ namespace AdmiTienda
             // btnEntregar
             // 
             this.btnEntregar.Enabled = false;
-            this.btnEntregar.Location = new System.Drawing.Point(150, 490);
+            this.btnEntregar.Location = new System.Drawing.Point(148, 617);
             this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(127, 43);
+            this.btnEntregar.Size = new System.Drawing.Size(132, 43);
             this.btnEntregar.TabIndex = 42;
             this.btnEntregar.Text = "MARCAR COMO ENTREGADO";
             this.btnEntregar.UseVisualStyleBackColor = true;
@@ -176,6 +178,8 @@ namespace AdmiTienda
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtMetodo);
@@ -201,13 +205,23 @@ namespace AdmiTienda
             this.groupBox1.Controls.Add(this.btnAceptar);
             this.groupBox1.Controls.Add(this.btnEntregar);
             this.groupBox1.Controls.Add(this.btnCancelar);
-            this.groupBox1.Location = new System.Drawing.Point(874, 12);
+            this.groupBox1.Location = new System.Drawing.Point(618, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(436, 599);
+            this.groupBox1.Size = new System.Drawing.Size(436, 685);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DETALLE DEL PEDIDO";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(9, 205);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(147, 13);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "PRODUCTOS PEDIDOS:";
             // 
             // label10
             // 
@@ -241,6 +255,25 @@ namespace AdmiTienda
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             // 
+            // txtReceptor
+            // 
+            this.txtReceptor.AutoSize = true;
+            this.txtReceptor.Location = new System.Drawing.Point(292, 16);
+            this.txtReceptor.Name = "txtReceptor";
+            this.txtReceptor.Size = new System.Drawing.Size(66, 13);
+            this.txtReceptor.TabIndex = 67;
+            this.txtReceptor.Text = "RECEPTOR";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(215, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 13);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "RECEPTOR:";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -269,7 +302,6 @@ namespace AdmiTienda
             this.label11.Size = new System.Drawing.Size(80, 13);
             this.label11.TabIndex = 63;
             this.label11.Text = "ID CLIENTE:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label8
             // 
@@ -293,7 +325,7 @@ namespace AdmiTienda
             // txtTotal
             // 
             this.txtTotal.AutoSize = true;
-            this.txtTotal.Location = new System.Drawing.Point(342, 205);
+            this.txtTotal.Location = new System.Drawing.Point(358, 205);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(42, 13);
             this.txtTotal.TabIndex = 61;
@@ -302,7 +334,7 @@ namespace AdmiTienda
             // txtPago
             // 
             this.txtPago.AutoSize = true;
-            this.txtPago.Location = new System.Drawing.Point(85, 184);
+            this.txtPago.Location = new System.Drawing.Point(82, 183);
             this.txtPago.Name = "txtPago";
             this.txtPago.Size = new System.Drawing.Size(51, 13);
             this.txtPago.TabIndex = 60;
@@ -310,11 +342,12 @@ namespace AdmiTienda
             // 
             // detalleProductos
             // 
+            this.detalleProductos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.detalleProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.detalleProductos.Location = new System.Drawing.Point(6, 226);
             this.detalleProductos.Name = "detalleProductos";
             this.detalleProductos.ReadOnly = true;
-            this.detalleProductos.Size = new System.Drawing.Size(424, 241);
+            this.detalleProductos.Size = new System.Drawing.Size(424, 385);
             this.detalleProductos.TabIndex = 57;
             this.detalleProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.detalleProductos_CellContentClick);
             // 
@@ -367,7 +400,7 @@ namespace AdmiTienda
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(285, 205);
+            this.label6.Location = new System.Drawing.Point(310, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 49;
@@ -412,7 +445,6 @@ namespace AdmiTienda
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 45;
             this.label2.Text = "CORREO:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -436,7 +468,7 @@ namespace AdmiTienda
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(560, 23);
+            this.txtBusqueda.Location = new System.Drawing.Point(243, 56);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(248, 20);
             this.txtBusqueda.TabIndex = 35;
@@ -454,7 +486,7 @@ namespace AdmiTienda
             "ULTIMOS TRES MESES",
             "ULTIMOS SEIS MESES ",
             "ULTIMO AÑO"});
-            this.comboBuscarFecha.Location = new System.Drawing.Point(560, 23);
+            this.comboBuscarFecha.Location = new System.Drawing.Point(243, 56);
             this.comboBuscarFecha.Name = "comboBuscarFecha";
             this.comboBuscarFecha.Size = new System.Drawing.Size(185, 21);
             this.comboBuscarFecha.TabIndex = 38;
@@ -470,7 +502,7 @@ namespace AdmiTienda
             "ACEPTADO",
             "CANCELADO",
             "ENTREGADO"});
-            this.comboBuscarEstado.Location = new System.Drawing.Point(560, 23);
+            this.comboBuscarEstado.Location = new System.Drawing.Point(243, 56);
             this.comboBuscarEstado.Name = "comboBuscarEstado";
             this.comboBuscarEstado.Size = new System.Drawing.Size(185, 21);
             this.comboBuscarEstado.TabIndex = 44;
@@ -481,7 +513,7 @@ namespace AdmiTienda
             // 
             this.groupBusquedaEstado.Controls.Add(this.rbtFalse);
             this.groupBusquedaEstado.Controls.Add(this.rbtTrue);
-            this.groupBusquedaEstado.Location = new System.Drawing.Point(560, 9);
+            this.groupBusquedaEstado.Location = new System.Drawing.Point(243, 42);
             this.groupBusquedaEstado.Name = "groupBusquedaEstado";
             this.groupBusquedaEstado.Size = new System.Drawing.Size(226, 49);
             this.groupBusquedaEstado.TabIndex = 45;
@@ -524,46 +556,17 @@ namespace AdmiTienda
             "ULTIMOS TRES MESES",
             "ULTIMOS SEIS MESES ",
             "ULTIMO AÑO"});
-            this.comboBuscarConFecha.Location = new System.Drawing.Point(635, 60);
+            this.comboBuscarConFecha.Location = new System.Drawing.Point(318, 93);
             this.comboBuscarConFecha.Name = "comboBuscarConFecha";
             this.comboBuscarConFecha.Size = new System.Drawing.Size(185, 21);
-            this.comboBuscarConFecha.TabIndex = 46;
+            this.comboBuscarConFecha.TabIndex = 3;
             this.comboBuscarConFecha.Visible = false;
             this.comboBuscarConFecha.SelectedIndexChanged += new System.EventHandler(this.comboBuscarConFecha_SelectedIndexChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(9, 205);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 13);
-            this.label12.TabIndex = 66;
-            this.label12.Text = "PRODUCTOS PEDIDOS:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(215, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 13);
-            this.label13.TabIndex = 67;
-            this.label13.Text = "RECEPTOR:";
-            // 
-            // txtReceptor
-            // 
-            this.txtReceptor.AutoSize = true;
-            this.txtReceptor.Location = new System.Drawing.Point(292, 16);
-            this.txtReceptor.Name = "txtReceptor";
-            this.txtReceptor.Size = new System.Drawing.Size(66, 13);
-            this.txtReceptor.TabIndex = 67;
-            this.txtReceptor.Text = "RECEPTOR";
             // 
             // lblTemporalidad
             // 
             this.lblTemporalidad.AutoSize = true;
-            this.lblTemporalidad.Location = new System.Drawing.Point(534, 63);
+            this.lblTemporalidad.Location = new System.Drawing.Point(217, 96);
             this.lblTemporalidad.Name = "lblTemporalidad";
             this.lblTemporalidad.Size = new System.Drawing.Size(95, 13);
             this.lblTemporalidad.TabIndex = 47;
@@ -572,19 +575,40 @@ namespace AdmiTienda
             // 
             // btnPedidosHoy
             // 
-            this.btnPedidosHoy.Location = new System.Drawing.Point(205, 12);
+            this.btnPedidosHoy.Location = new System.Drawing.Point(12, 64);
             this.btnPedidosHoy.Name = "btnPedidosHoy";
-            this.btnPedidosHoy.Size = new System.Drawing.Size(103, 43);
-            this.btnPedidosHoy.TabIndex = 48;
+            this.btnPedidosHoy.Size = new System.Drawing.Size(181, 43);
+            this.btnPedidosHoy.TabIndex = 1;
             this.btnPedidosHoy.Text = "PEDIDOS DEL DIA";
             this.btnPedidosHoy.UseVisualStyleBackColor = true;
             this.btnPedidosHoy.Click += new System.EventHandler(this.btnPedidosHoy_Click);
             // 
-            // Form2
+            // txtEstado
+            // 
+            this.txtEstado.AutoSize = true;
+            this.txtEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtEstado.Location = new System.Drawing.Point(358, 184);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(51, 13);
+            this.txtEstado.TabIndex = 67;
+            this.txtEstado.Text = "ESTADO";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(221, 184);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(140, 13);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "ESTADO DEL PEDIDO:";
+            // 
+            // PEDIDOFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1322, 623);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1322, 712);
             this.Controls.Add(this.btnPedidosHoy);
             this.Controls.Add(this.lblTemporalidad);
             this.Controls.Add(this.comboBuscarConFecha);
@@ -597,7 +621,8 @@ namespace AdmiTienda
             this.Controls.Add(this.comboBusqueda);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.button7);
-            this.Name = "Form2";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "PEDIDOFORM";
             this.Text = "PEDIDOS";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.groupBox4.ResumeLayout(false);
@@ -660,5 +685,7 @@ namespace AdmiTienda
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblTemporalidad;
         private System.Windows.Forms.Button btnPedidosHoy;
+        private System.Windows.Forms.Label txtEstado;
+        private System.Windows.Forms.Label label14;
     }
 }
