@@ -1,0 +1,1161 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app-tienda documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">app-tienda documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Componentes</li>
+  <li
+  >
+  ProductosComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/productos/productos.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implementa</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-productos</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./productos.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./productos.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hayProductos" >hayProductos</a>
+                            </li>
+                            <li>
+                                <a href="#opcion" >opcion</a>
+                            </li>
+                            <li>
+                                <a href="#opciones" >opciones</a>
+                            </li>
+                            <li>
+                                <a href="#page_number" >page_number</a>
+                            </li>
+                            <li>
+                                <a href="#productos" >productos</a>
+                            </li>
+                            <li>
+                                <a href="#productosRespaldo" >productosRespaldo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agregarACarrito" >agregarACarrito</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerProductos" >obtenerProductos</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerProductosPorCategorias" >obtenerProductosPorCategorias</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(productosService: <a href="../injectables/ProductosService.html" target="_self">ProductosService</a>, carritoService: <a href="../injectables/CarroDeComprasService.html" target="_self">CarroDeComprasService</a>, toastr: ToastrService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/components/productos/productos.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de ventana de productos</p>
+</div>
+                            <div>
+                                    <b>Parámetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nombre</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>productosService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProductosService.html" target="_self" >ProductosService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>carritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarroDeComprasService.html" target="_self" >CarroDeComprasService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastr</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarACarrito"></a>
+                    <span class="name">
+                        <span ><b>agregarACarrito</b></span>
+                        <a href="#agregarACarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarACarrito(producto: <a href="../classes/Producto.html" target="_self">Producto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="87"
+                            class="link-to-prism">src/app/components/productos/productos.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Agrega el producto al carrito de compras</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>producto</td>
+                                    <td>
+                                                <code><a href="../classes/Producto.html" target="_self" >Producto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="32"
+                            class="link-to-prism">src/app/components/productos/productos.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerProductos"></a>
+                    <span class="name">
+                        <span ><b>obtenerProductos</b></span>
+                        <a href="#obtenerProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerProductos()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="38"
+                            class="link-to-prism">src/app/components/productos/productos.component.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Obtine una lista de los productos disponibles</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerProductosPorCategorias"></a>
+                    <span class="name">
+                        <span ><b>obtenerProductosPorCategorias</b></span>
+                        <a href="#obtenerProductosPorCategorias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerProductosPorCategorias(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Definido en <a href="" data-line="69"
+                            class="link-to-prism">src/app/components/productos/productos.component.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Filtra los productos por categorias</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parámetros :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>Tipo</td>
+                                    <td>Opcional</td>
+                                    <td>Descripción</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>nombre categoria</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hayProductos"></a>
+                    <span class="name">
+                        <span ><b>hayProductos</b></span>
+                        <a href="#hayProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="64" class="link-to-prism">src/app/components/productos/productos.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="opcion"></a>
+                    <span class="name">
+                        <span ><b>opcion</b></span>
+                        <a href="#opcion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>20</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/components/productos/productos.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="opciones"></a>
+                    <span class="name">
+                        <span ><b>opciones</b></span>
+                        <a href="#opciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[4,10,20,50,100,200]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/components/productos/productos.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="page_number"></a>
+                    <span class="name">
+                        <span ><b>page_number</b></span>
+                        <a href="#page_number"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="17" class="link-to-prism">src/app/components/productos/productos.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productos"></a>
+                    <span class="name">
+                        <span ><b>productos</b></span>
+                        <a href="#productos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../classes/Producto.html" target="_self" >Producto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/components/productos/productos.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productosRespaldo"></a>
+                    <span class="name">
+                        <span ><b>productosRespaldo</b></span>
+                        <a href="#productosRespaldo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../classes/Producto.html" target="_self" >Producto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="63" class="link-to-prism">src/app/components/productos/productos.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+// import { ToastrService } from &#x27;ngx-toastr&#x27;;
+import { Carrito } from &#x27;src/app/models/Carrito&#x27;;
+import { ProductosService } from &#x27;src/app/services/productos.service&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import Producto from &#x27;src/app/models/Producto&#x27;;
+import { CarroDeComprasService } from &#x27;../../services/carro-de-compras.service&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+@Component({
+  selector: &#x27;app-productos&#x27;,
+  templateUrl: &#x27;./productos.component.html&#x27;,
+  styleUrls: [&#x27;./productos.component.css&#x27;]
+})
+export class ProductosComponent implements OnInit {
+
+  productos:Producto[] &#x3D; []
+  page_number:number &#x3D; 1 
+  opcion:number &#x3D; 20
+  opciones:number [] &#x3D; [4,10,20,50,100,200]
+
+
+/**
+ * Constructor de ventana de productos 
+ * @param productosService 
+ * @param carritoService 
+ * @param toastr 
+ */
+  constructor(private productosService: ProductosService,
+    private carritoService:CarroDeComprasService,
+    private toastr: ToastrService) { }
+
+  ngOnInit(): void {
+    this.obtenerProductos()
+  }
+/**
+ * Obtine una lista de los productos disponibles 
+ */
+  obtenerProductos():void{
+    this.productosService.getAll().pipe(
+      map(changes &#x3D;&gt;
+        changes.map(c &#x3D;&gt;
+          
+          ({ Id: c.payload.doc.id,
+            Categoria : c.payload.doc.data()[&#x27;Categoria&#x27;],
+            Descripcion : c.payload.doc.data()[&#x27;Descripcion&#x27;],
+            Estado: c.payload.doc.data()[&#x27;Estado&#x27;],
+            Imagen: c.payload.doc.data()[&#x27;Imagen&#x27;],
+            Imagen2: c.payload.doc.data()[&#x27;Imagen2&#x27;],
+            Imagen3: c.payload.doc.data()[&#x27;Imagen3&#x27;],
+            Nombre: c.payload.doc.data()[&#x27;Nombre&#x27;],
+            Oferta: c.payload.doc.data()[&#x27;Oferta&#x27;],
+            Precio: c.payload.doc.data()[&#x27;Precio&#x27;],
+            Precio_Oferta: c.payload.doc.data()[&#x27;Precio_Oferta&#x27;]
+          })
+        )
+      )
+    ).subscribe(data &#x3D;&gt; {
+      this.productos &#x3D; data;
+      this.productosRespaldo &#x3D; data;
+    });
+  }
+
+  productosRespaldo: Producto[] &#x3D; []
+  hayProductos:boolean &#x3D; true
+/**
+ * Filtra los productos por categorias 
+ * @param query nombre categoria 
+ */
+  obtenerProductosPorCategorias(query:string){
+    let categorias:Producto[];
+    if(query &#x3D;&#x3D; &#x27;Todos&#x27;){
+      this.productos &#x3D; this.productosRespaldo
+    }else{
+      categorias &#x3D; []
+      this.productosRespaldo.forEach(element &#x3D;&gt; {
+        if(element.Categoria&#x3D;&#x3D;query)  
+          categorias.push(element)
+      });
+      this.hayProductos &#x3D; categorias.length &gt; 0
+      this.productos &#x3D; categorias
+    }
+  }
+/**
+ * Agrega el producto al carrito de compras
+ * @param producto 
+ */
+  agregarACarrito(producto:Producto){
+    const carrito:Carrito &#x3D; {
+      IdProducto: producto.Id,
+      cantidad: 1,
+    }
+    this.carritoService.agregarProducto(carrito);
+    this.toastr.success(&#x27;Carrito + 1 Item&#x27;,&#x27;Producto añadido al carrito!&#x27;,{
+      timeOut:1500,
+      closeButton:true
+    })
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;section class&#x3D;&quot;jumbotron text-center mt-3&quot;&gt;
+        &lt;div class&#x3D;&quot;texto container &quot;&gt;
+            &lt;h1 class&#x3D;&quot;text-white&quot;&gt;Mira los productos que ofrecemos&lt;/h1&gt;
+            &lt;p class&#x3D;&quot;lead text-light&quot;&gt;Bienvenidos a DAPS Tienda Virtual, el nuevo sitio Web donde encontraras lo mejor en Tecnología.DAPS NUEVA Tienda OnLine del Ecuador donde encontrarás todo en TECNOLOGÍA, COMPUTADORAS, Impresoras, Suministros, Cámaras Web, Accesorios de Celulares,
+                Partes y Piezas para PC y LAPTOP ¡Encuentra Todo en un Solo Lugar! Compra 100% Segura. Envío Nacional.&lt;/p&gt;
+            &lt;p&gt;
+                &lt;a class&#x3D;&quot;btn btn-primary my-2&quot;&gt;Comprar en facebook&lt;/a&gt;
+                &lt;a class&#x3D;&quot;btn btn-success my-2&quot;&gt;Comprar en whatsapp&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+
+
+
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+
+        &lt;div class&#x3D;&quot;col-md-6 d-flex justify-content-start&quot;&gt;
+
+            &lt;div class&#x3D;&quot;form-check form-check-inline&quot;&gt;
+                &lt;label class&#x3D;&quot;text-muted mr-1&quot;&gt;Items por página: &lt;/label&gt;
+                &lt;select class&#x3D;&quot;form-control form-control-sm d-inline mb-2&quot; [(ngModel)]&#x3D;&quot;opcion&quot; style&#x3D;&quot;width: 60px;
+            height: 25px;&quot;&gt;
+              &lt;option *ngFor&#x3D;&quot;let item of opciones&quot;  [ngValue]&#x3D;&quot;item&quot;&gt;{{item}}&lt;/option&gt;
+            &lt;/select&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row ml-1&quot;&gt;
+        &lt;div class&#x3D;&quot;col-3 d-none d-md-block&quot; style&#x3D;&quot;padding: unset;&quot;&gt;
+            &lt;h5&gt;Categorías:&lt;/h5&gt;
+            &lt;a (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;Todos&#x27;)&quot;&gt;Todos los productos&lt;/a&gt;
+            &lt;div class&#x3D;&quot;accordion &quot; id&#x3D;&quot;accordionExample&quot;&gt;
+                &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot; id&#x3D;&quot;headingOne&quot;&gt;
+                        &lt;h2 class&#x3D;&quot;mb-0&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-link btn-block text-left collapsed&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;collapse&quot; data-target&#x3D;&quot;#collapseOne&quot; aria-expanded&#x3D;&quot;false&quot; aria-controls&#x3D;&quot;collapseOne&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-tv mr-3&quot;&gt;&lt;/i&gt;Televisión, Video y Audio
+                  &lt;/button&gt;
+                        &lt;/h2&gt;
+                    &lt;/div&gt;
+
+                    &lt;div id&#x3D;&quot;collapseOne&quot; class&#x3D;&quot;collapse&quot; aria-labelledby&#x3D;&quot;headingOne&quot; data-parent&#x3D;&quot;#accordionExample&quot;&gt;
+                        &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;TELEVISORES&#x27;)&quot;&gt;Televisores&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;ACCESORIOS DE TV Y VIDEO&#x27;)&quot;&gt;Accesorios de TV y Video&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;PARLANTES Y AUDIO&#x27;)&quot;&gt;Parlantes y Audio&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot; id&#x3D;&quot;headingTwo&quot;&gt;
+                        &lt;h2 class&#x3D;&quot;mb-0&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-link btn-block text-left collapsed&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;collapse&quot; data-target&#x3D;&quot;#collapseTwo&quot; aria-expanded&#x3D;&quot;false&quot; aria-controls&#x3D;&quot;collapseTwo&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-laptop mr-2&quot;&gt;&lt;/i&gt;Computación
+                  &lt;/button&gt;
+                        &lt;/h2&gt;
+                    &lt;/div&gt;
+                    &lt;div id&#x3D;&quot;collapseTwo&quot; class&#x3D;&quot;collapse&quot; aria-labelledby&#x3D;&quot;headingTwo&quot; data-parent&#x3D;&quot;#accordionExample&quot;&gt;
+                        &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;COMPUTADORAS Y LAPTOS&#x27;)&quot;&gt;Computadoras y Laptos&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;IMPRESORAS&#x27;)&quot;&gt;Impresoras&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;WEBCAMS&#x27;)&quot;&gt;Webcams&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;PENDRIVES&#x27;)&quot;&gt;Pendrives&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;SOFTWARE&#x27;)&quot;&gt;Software&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot; id&#x3D;&quot;headingThree&quot;&gt;
+                        &lt;h2 class&#x3D;&quot;mb-0&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-link btn-block text-left collapsed&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;collapse&quot; data-target&#x3D;&quot;#collapseThree&quot; aria-expanded&#x3D;&quot;false&quot; aria-controls&#x3D;&quot;collapseThree&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-joystick mr-2&quot;&gt;&lt;/i&gt;Videojuegos y Consolas
+                  &lt;/button&gt;
+                        &lt;/h2&gt;
+                    &lt;/div&gt;
+                    &lt;div id&#x3D;&quot;collapseThree&quot; class&#x3D;&quot;collapse&quot; aria-labelledby&#x3D;&quot;headingThree&quot; data-parent&#x3D;&quot;#accordionExample&quot;&gt;
+                        &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;JUEGOS&#x27;)&quot;&gt;Juegos&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;CONTROLES&#x27;)&quot;&gt;Controles&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;CONSOLAS&#x27;)&quot;&gt;Consolas&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card&quot;&gt;
+                    &lt;div class&#x3D;&quot;card-header&quot; id&#x3D;&quot;headingFour&quot;&gt;
+                        &lt;h2 class&#x3D;&quot;mb-0&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-link btn-block text-left collapsed&quot; type&#x3D;&quot;button&quot; data-toggle&#x3D;&quot;collapse&quot; data-target&#x3D;&quot;#collapseFour&quot; aria-expanded&#x3D;&quot;false&quot; aria-controls&#x3D;&quot;collapseFour&quot;&gt;
+                    &lt;i class&#x3D;&quot;bi bi-phone mr-2&quot;&gt;&lt;/i&gt;Celulares y Accesorios
+                  &lt;/button&gt;
+                        &lt;/h2&gt;
+                    &lt;/div&gt;
+                    &lt;div id&#x3D;&quot;collapseFour&quot; class&#x3D;&quot;collapse&quot; aria-labelledby&#x3D;&quot;headingFour&quot; data-parent&#x3D;&quot;#accordionExample&quot;&gt;
+                        &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;CELULARES&#x27;)&quot;&gt;Celulares&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;SMARTWATCHES Y ACCESORIOS&#x27;)&quot;&gt;Smartwatches y Accesorios&lt;/li&gt;
+                            &lt;li class&#x3D;&quot;list-group-item&quot; (click)&#x3D;&quot;obtenerProductosPorCategorias(&#x27;REPUESTOS&#x27;)&quot;&gt;Repuestos&lt;/li&gt;
+
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-12 col-md-9 col-sm-12&quot;&gt;
+            &lt;div class&#x3D;&quot;album py-3 bg-light&quot;&gt;
+                &lt;div class&#x3D;&quot;container&quot;&gt;
+                    &lt;div *ngIf&#x3D;&quot;hayProductos&quot; class&#x3D;&quot;row&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-md-4 col-sm-12&quot; *ngFor&#x3D;&quot;let producto of productos  | paginate: { itemsPerPage: opcion, currentPage: page_number,totalItems: productos.length } &quot;&gt;
+                            &lt;div class&#x3D;&quot;card mb-3 shadow-sm&quot;&gt;
+                                &lt;img *ngIf&#x3D;&quot; producto.Imagen !&#x3D; &#x27;Sin imagen&#x27;; else  other_content&quot; [routerLink]&#x3D;&quot;[&#x27;/detalle-producto&#x27;, producto.Id]&quot; class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;{{producto.Imagen}}&quot; alt&#x3D;&quot;&quot; ng-switch-when&#x3D;&quot;Sin imagen&quot;&gt;
+                                &lt;ng-template #other_content&gt;
+                                    &lt;img *ngIf&#x3D;&quot; producto.Imagen2 !&#x3D; &#x27;Sin imagen&#x27;; else  other_content2&quot; [routerLink]&#x3D;&quot;[&#x27;/detalle-producto&#x27;, producto.Id]&quot; class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;{{producto.Imagen2}}&quot; alt&#x3D;&quot;&quot; ng-switch-when&#x3D;&quot;Sin imagen&quot;&gt;
+                                &lt;/ng-template&gt;
+                                &lt;ng-template #other_content2&gt;
+                                    &lt;img [routerLink]&#x3D;&quot;[&#x27;/tienda/producto&#x27;, producto.Id]&quot; class&#x3D;&quot;card-img-top&quot; src&#x3D;&quot;{{producto.Imagen3}}&quot; alt&#x3D;&quot;&quot; ng-switch-when&#x3D;&quot;Sin imagen&quot;&gt;
+                                &lt;/ng-template&gt;
+
+                                &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                                    &lt;a class&#x3D;&quot;font-weight-bold&quot; [routerLink]&#x3D;&quot;[&#x27;/tienda/producto&#x27;, producto.Id]&quot; style&#x3D;&quot;font-size: 1.2rem;&quot;&gt;{{producto.Nombre}}&lt;/a&gt;
+                                    &lt;br&gt;
+
+                                    &lt;small class&#x3D;&quot;text-muted&quot; style&#x3D;&quot;font-size: 0.7rem;&quot;&gt;Código: {{producto?.Id}}&lt;/small&gt;
+
+                                    &lt;br&gt;
+                                    &lt;small *ngIf&#x3D;&quot;producto.Oferta&quot; class&#x3D;&quot;text-right&quot; style&#x3D;&quot;font-size: 1.1rem; &quot;&gt;
+                                      {{ producto.Precio_Oferta | currency:&#x27;$&#x27; }}
+                                    &lt;/small&gt;
+                                    &lt;small *ngIf&#x3D;&quot;producto.Oferta&quot; class&#x3D;&quot; mt-4 text-muted text-left&quot; style&#x3D;&quot;font-size: 0.8rem;&quot;&gt;&lt;s&gt;{{ producto.Precio | currency:&#x27;$&#x27; }}&lt;/s&gt;&lt;/small&gt;
+
+                                    &lt;small *ngIf&#x3D;&quot;!producto.Oferta&quot; class&#x3D;&quot;text-left&quot; style&#x3D;&quot;font-size: 1.1rem; &quot;&gt;{{ producto.Precio | currency:&#x27;$&#x27; }}&lt;/small&gt; &lt;br&gt;
+                                    &lt;small class&#x3D;&quot;text-muted&quot;&gt;(incluido IVA)&lt;/small&gt;
+                                    &lt;hr&gt;
+
+
+                                    &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                        &lt;button type&#x3D;&quot;button&quot; id&#x3D;&quot;btnicon&quot; class&#x3D;&quot;btn btn-outline-primary m-auto&quot; (click)&#x3D;&quot;agregarACarrito(producto)&quot;&gt;
+    
+                            &lt;i class&#x3D;&quot;bi bi-cart font-italic&quot;&gt; Añadir al carrito&lt;/i&gt; 
+                          &lt;/button&gt;
+
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div *ngIf&#x3D;&quot;!hayProductos&quot;&gt;
+                        &lt;div class&#x3D;&quot;alert alert-primary&quot; role&#x3D;&quot;alert&quot;&gt;
+                            Aún no contamos con productos para esta categoría
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div row&gt;
+    &lt;div class&#x3D;&quot;col-md-12 d-flex justify-content-center&quot;&gt;
+
+
+        &lt;pagination-controls (pageChange)&#x3D;&quot;page_number &#x3D; $event&quot; previousLabel&#x3D;&quot;Anterior&quot; nextLabel&#x3D;&quot;Siguiente&quot;&gt;&lt;/pagination-controls&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- &lt;app-footer&gt;&lt;/app-footer&gt; --&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./productos.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.jumbotron {
+    background-image: url(&quot;https://morfi.vtexassets.com/assets/vtex.file-manager-graphql/images/585372da-8713-46a6-811a-c40a129c2fa5___56b40092c927c0aba28e6c695fb70151.jpg&quot;);
+    /* background-position: center; */
+    height: 400px;
+}
+
+.texto {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+a {
+    cursor: pointer !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+.card-header {
+    padding: unset;
+}
+
+.card-body {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+hr {
+    margin: 0.5rem;
+}
+
+.btn {
+    border-radius: unset;
+    margin: unset;
+}
+
+.list-group-item {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: rgb(240, 236, 236);
+}
+
+li {
+    cursor: pointer !important;
+}
+
+.list-group-item:hover {
+    background-color: rgb(158, 158, 158);
+    color: whitesmoke;
+}
+
+.list-group-item:active {
+    background-color: rgb(158, 158, 158);
+    color: whitesmoke;
+}
+
+.btn-link {
+    background-color: rgb(255, 253, 253);
+    color: black;
+}
+
+.btn-link:hover {
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}
+
+.btn-link:focus {
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}
+
+.btn-link:active {
+    background-color: black;
+    color: white;
+    text-decoration: unset;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">    <section class="jumbotron text-center mt-3">        <div class="texto container ">            <h1 class="text-white">Mira los productos que ofrecemos</h1>            <p class="lead text-light">Bienvenidos a DAPS Tienda Virtual, el nuevo sitio Web donde encontraras lo mejor en Tecnología.DAPS NUEVA Tienda OnLine del Ecuador donde encontrarás todo en TECNOLOGÍA, COMPUTADORAS, Impresoras, Suministros, Cámaras Web, Accesorios de Celulares,                Partes y Piezas para PC y LAPTOP ¡Encuentra Todo en un Solo Lugar! Compra 100% Segura. Envío Nacional.</p>            <p>                <a class="btn btn-primary my-2">Comprar en facebook</a>                <a class="btn btn-success my-2">Comprar en whatsapp</a>            </p>        </div>    </section>    <div class="row">        <div class="col-md-6 d-flex justify-content-start">            <div class="form-check form-check-inline">                <label class="text-muted mr-1">Items por página: </label>                <select class="form-control form-control-sm d-inline mb-2" [(ngModel)]="opcion" style="width: 60px;            height: 25px;">              <option *ngFor="let item of opciones"  [ngValue]="item">{{item}}</option>            </select>            </div>        </div>    </div>    <div class="row ml-1">        <div class="col-3 d-none d-md-block" style="padding: unset;">            <h5>Categorías:</h5>            <a (click)="obtenerProductosPorCategorias(\'Todos\')">Todos los productos</a>            <div class="accordion " id="accordionExample">                <div class="card">                    <div class="card-header" id="headingOne">                        <h2 class="mb-0">                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">                    <i class="bi bi-tv mr-3"></i>Televisión, Video y Audio                  </button>                        </h2>                    </div>                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">                        <ul class="list-group">                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'TELEVISORES\')">Televisores</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'ACCESORIOS DE TV Y VIDEO\')">Accesorios de TV y Video</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'PARLANTES Y AUDIO\')">Parlantes y Audio</li>                        </ul>                    </div>                </div>                <div class="card">                    <div class="card-header" id="headingTwo">                        <h2 class="mb-0">                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">                    <i class="bi bi-laptop mr-2"></i>Computación                  </button>                        </h2>                    </div>                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">                        <ul class="list-group">                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'COMPUTADORAS Y LAPTOS\')">Computadoras y Laptos</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'IMPRESORAS\')">Impresoras</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'WEBCAMS\')">Webcams</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'PENDRIVES\')">Pendrives</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'SOFTWARE\')">Software</li>                        </ul>                    </div>                </div>                <div class="card">                    <div class="card-header" id="headingThree">                        <h2 class="mb-0">                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">                    <i class="bi bi-joystick mr-2"></i>Videojuegos y Consolas                  </button>                        </h2>                    </div>                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">                        <ul class="list-group">                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'JUEGOS\')">Juegos</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'CONTROLES\')">Controles</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'CONSOLAS\')">Consolas</li>                        </ul>                    </div>                </div>                <div class="card">                    <div class="card-header" id="headingFour">                        <h2 class="mb-0">                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">                    <i class="bi bi-phone mr-2"></i>Celulares y Accesorios                  </button>                        </h2>                    </div>                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">                        <ul class="list-group">                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'CELULARES\')">Celulares</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'SMARTWATCHES Y ACCESORIOS\')">Smartwatches y Accesorios</li>                            <li class="list-group-item" (click)="obtenerProductosPorCategorias(\'REPUESTOS\')">Repuestos</li>                        </ul>                    </div>                </div>            </div>        </div>        <div class="col-12 col-md-9 col-sm-12">            <div class="album py-3 bg-light">                <div class="container">                    <div *ngIf="hayProductos" class="row">                        <div class="col-md-4 col-sm-12" *ngFor="let producto of productos  | paginate: { itemsPerPage: opcion, currentPage: page_number,totalItems: productos.length } ">                            <div class="card mb-3 shadow-sm">                                <img *ngIf=" producto.Imagen != \'Sin imagen\'; else  other_content" [routerLink]="[\'/detalle-producto\', producto.Id]" class="card-img-top" src="{{producto.Imagen}}" alt="" ng-switch-when="Sin imagen">                                <ng-template #other_content>                                    <img *ngIf=" producto.Imagen2 != \'Sin imagen\'; else  other_content2" [routerLink]="[\'/detalle-producto\', producto.Id]" class="card-img-top" src="{{producto.Imagen2}}" alt="" ng-switch-when="Sin imagen">                                </ng-template>                                <ng-template #other_content2>                                    <img [routerLink]="[\'/tienda/producto\', producto.Id]" class="card-img-top" src="{{producto.Imagen3}}" alt="" ng-switch-when="Sin imagen">                                </ng-template>                                <div class="card-body">                                    <a class="font-weight-bold" [routerLink]="[\'/tienda/producto\', producto.Id]" style="font-size: 1.2rem;">{{producto.Nombre}}</a>                                    <br>                                    <small class="text-muted" style="font-size: 0.7rem;">Código: {{producto?.Id}}</small>                                    <br>                                    <small *ngIf="producto.Oferta" class="text-right" style="font-size: 1.1rem; ">                                      {{ producto.Precio_Oferta | currency:\'$\' }}                                    </small>                                    <small *ngIf="producto.Oferta" class=" mt-4 text-muted text-left" style="font-size: 0.8rem;"><s>{{ producto.Precio | currency:\'$\' }}</s></small>                                    <small *ngIf="!producto.Oferta" class="text-left" style="font-size: 1.1rem; ">{{ producto.Precio | currency:\'$\' }}</small> <br>                                    <small class="text-muted">(incluido IVA)</small>                                    <hr>                                    <div class="d-flex">                                        <button type="button" id="btnicon" class="btn btn-outline-primary m-auto" (click)="agregarACarrito(producto)">                                <i class="bi bi-cart font-italic"> Añadir al carrito</i>                           </button>                                    </div>                                </div>                            </div>                        </div>                    </div>                    <div *ngIf="!hayProductos">                        <div class="alert alert-primary" role="alert">                            Aún no contamos con productos para esta categoría                        </div>                    </div>                </div>            </div>        </div>    </div></div><div row>    <div class="col-md-12 d-flex justify-content-center">        <pagination-controls (pageChange)="page_number = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>    </div></div><!-- <app-footer></app-footer> --></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CarritoComponent', 'selector': 'app-carrito'},{'name': 'CarroNavbarComponent', 'selector': 'app-carro-navbar'},{'name': 'CarruselComponent', 'selector': 'app-carrusel'},{'name': 'DetalleProductoComponent', 'selector': 'app-detalle-producto'},{'name': 'FinalizarCompraComponent', 'selector': 'app-finalizar-compra'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MarketingComponent', 'selector': 'app-marketing'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OrdenComponent', 'selector': 'app-orden'},{'name': 'ProductosComponent', 'selector': 'app-productos'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'TablaComponent', 'selector': 'app-tabla'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProductosComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductosComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
